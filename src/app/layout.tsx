@@ -1,5 +1,5 @@
 import { Container } from 'components/Container'
-import { Header } from 'components/blocks/header/Header'
+import { Header } from 'components/layout/Header'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
