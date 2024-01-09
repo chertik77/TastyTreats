@@ -13,6 +13,7 @@ export const Modal = ({ isVisible, hide, children, pathTroughOptions, ...options
     visible={isVisible}
     onHide={hide}
     blockScroll
+    content={false}
     dismissableMask
     pt={pathTroughOptions}
     focusOnShow={false}
