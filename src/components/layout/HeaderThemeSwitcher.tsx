@@ -1,6 +1,9 @@
+'use client'
+
 import { useTheme } from 'next-themes'
 import { InputSwitch, InputSwitchProps } from 'primereact/inputswitch'
 import { classNames } from 'primereact/utils'
+import { useEffect, useState } from 'react'
 
 type HeaderThemeSwitcherProps = {
   className?: string
@@ -11,7 +14,16 @@ type InputSwitchPropTypes = {
 }
 
 export const HeaderThemeSwitcher = ({ className }: HeaderThemeSwitcherProps) => {
+  const [mounted, setMounted] = useState(false)
   const { theme, setTheme, resolvedTheme } = useTheme()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
+
+  if (!mounted) {
+    return null
+  }
 
   const isThemeDark = theme === 'dark' || resolvedTheme === 'dark'
   const passThroughOptions = {

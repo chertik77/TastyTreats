@@ -1,3 +1,5 @@
+'use client'
+
 import { Modal } from 'components/ui/Modal'
 import { useModal } from 'hooks/useModal'
 import { HeaderNav } from './HeaderNav'
@@ -11,7 +13,7 @@ export const HeaderBurgerMenu = () => {
     header: { className: 'bg-brand dark:bg-dark rounded-none' },
     footer: { className: 'bg-brand dark:bg-dark' },
     content: { className: 'bg-brand dark:bg-dark' },
-    closeButtonIcon: { className: 'w-8 h-8 text-light' }
+    closeButtonIcon: { className: 'w-8 h-8 text-light' },
   }
 
   return (

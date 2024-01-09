@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import { Suspense } from 'react'
 import { HeaderBurgerMenu } from './HeaderBurgerMenu'
 import { HeaderNav } from './HeaderNav'
 import { HeaderOrderNowModalBtn } from './HeaderOrderNowModalBtn'
@@ -16,7 +17,9 @@ export const Header = () => (
     <div className='flex items-center gap-[14px] tablet:gap-6'>
       <HeaderOrderNowModalBtn />
       <HeaderBurgerMenu />
-      <HeaderThemeSwitcher className='max-tablet:hidden' />
+      <Suspense fallback={<h1>loading...</h1>}>
+        <HeaderThemeSwitcher className='max-tablet:hidden' />
+      </Suspense>
     </div>
   </header>
 )

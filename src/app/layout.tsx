@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
 import type { PropsWithChildren } from 'react'
 import './globals.css'
+import { Providers } from './providers'
 
 const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['400', '500', '600'] })
 
@@ -17,8 +18,10 @@ const RootLayout = ({ children }: PropsWithChildren) => (
   <html lang='en' suppressHydrationWarning>
     <body className={`${inter.className} overscroll-none dark:bg-[#161616]`}>
       <Container>
-        <Header />
-        <main>{children}</main>
+        <Providers>
+          <Header />
+          <main>{children}</main>
+        </Providers>
       </Container>
     </body>
   </html>

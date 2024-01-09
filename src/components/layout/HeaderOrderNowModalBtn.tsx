@@ -1,3 +1,5 @@
+'use client'
+
 import { OrderNowModal } from 'components/ui/OrderNowModal'
 import { useModal } from 'hooks/useModal'
 

@@ -1,4 +1,4 @@
-import { NavLink } from 'react-router-dom'
+import Link from 'next/link'
 
 type HeaderNavProps = {
   className: string
@@ -8,11 +8,11 @@ type HeaderNavProps = {
 
 export const HeaderNav = ({ className, activeLink, hideModal }: HeaderNavProps) => (
   <nav className={className}>
-    <NavLink to='/' onClick={hideModal} className={activeLink}>
+    <Link href='/' onClick={hideModal} className={activeLink}>
       Home
-    </NavLink>
-    <NavLink to='/favorites' onClick={hideModal} className={activeLink}>
+    </Link>
+    <Link href='/favorites' onClick={hideModal} className={activeLink}>
       Favorites
-    </NavLink>
+    </Link>
   </nav>
 )
