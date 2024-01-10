@@ -44,7 +44,7 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
     register,
     handleSubmit,
     control,
-    formState: { errors, isValid }
+    formState: { errors, isValid, isDirty }
   } = useForm({ resolver: valibotResolver(UserSchema), mode: 'onBlur' })
 
   const OrderNowModalPathTroughOptions = {
@@ -75,7 +75,7 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
           <input
             type='text'
             {...register('name')}
-            className='mt-2 block h-[46px] w-[295px] rounded-[15px] border border-dark-20 bg-transparent pl-[14px] text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:w-[360px]'
+            className='mt-2 block h-[46px] w-[295px] rounded-[15px] border border-dark-20 bg-transparent pl-[14px] text-fs-16-lh-125-fw-500 text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:w-[360px]'
             autoComplete='given-name'
           />
           {errors.name?.message && (
@@ -101,7 +101,7 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
                     listItemClassName: 'hocus:!bg-gray-20'
                   }
                 }}
-                inputClassName='!border !border-dark-20 w-full !h-[46px] !bg-transparent !rounded-r-[15px] dark:!border-gray-20 !text-dark dark:!text-white'
+                inputClassName='!border !border-dark-20 w-full !h-[46px] !bg-transparent !rounded-r-[15px] dark:!border-gray-20 !text-dark dark:!text-white !text-fs-16-lh-125-fw-500'
                 value={field.value}
                 onChange={phone => field.onChange(phone)}
               />
@@ -116,7 +116,7 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
           <input
             {...register('email')}
             type='text'
-            className='mb-4 mt-2 block h-[46px] w-[295px] rounded-[15px] border border-dark-20 bg-transparent pl-[14px] text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:mb-[18px] tablet:w-[360px]'
+            className='mb-4 mt-2 block h-[46px] w-[295px] rounded-[15px] border border-dark-20 bg-transparent pl-[14px] text-fs-16-lh-125-fw-500 text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:mb-[18px] tablet:w-[360px]'
             autoComplete='email'
           />
           {errors.email?.message && (
@@ -126,11 +126,14 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
         <label className='text-fs-14-lh-normal-fw-500 text-dark-50 dark:text-gray-50'>
           Comment
           <textarea
-            className='mb-10 mt-2 block h-[100px] w-[295px] resize-none rounded-[15px] border border-dark-20 bg-transparent pl-[14px] pt-[14px] text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:w-[360px]'
+            className='mb-10 mt-2 block h-[100px] w-[295px] resize-none rounded-[15px] border border-dark-20 bg-transparent pl-[14px] pt-[14px] text-fs-16-lh-125-fw-500 text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:w-[360px]'
             {...register('comment')}
           />
         </label>
-        <button type='submit' className='btn-send disabled:cursor-not-allowed disabled:opacity-50'>
+        <button
+          type='submit'
+          className='btn-send disabled:cursor-not-allowed disabled:opacity-50'
+          disabled={!isValid}>
           Send
         </button>
       </form>
