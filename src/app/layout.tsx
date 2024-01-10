@@ -12,12 +12,13 @@ const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['400', '500'
 
 export const metadata: Metadata = {
   title: 'TastyTreats',
-  description: 'Welcome to TastyTreats, your go-to online culinary haven! Discover a world of delicious recipes.',
+  description:
+    'Welcome to TastyTreats, your go-to online culinary haven! Discover a world of delicious recipes.'
 }
 
 const RootLayout = ({ children }: PropsWithChildren) => (
   <html lang='en' suppressHydrationWarning>
-    <body className={`${inter.className} overscroll-none dark:bg-[#161616]`}>
+    <body className={`${inter.className} dark:bg-[#161616]`}>
       <Container>
         <Providers>
           <Header />
