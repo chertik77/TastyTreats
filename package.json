@@ -10,24 +10,40 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@hookform/resolvers": "^3.3.4",
+    "add": "^2.0.6",
+    "alova": "^2.16.2",
+    "computed-types": "^1.11.2",
+    "google-libphonenumber": "^3.2.33",
     "next": "14.0.4",
     "next-themes": "^0.2.1",
+    "nope-validator": "^1.0.4",
     "primeicons": "^6.0.1",
     "primereact": "^10.3.0",
     "react": "^18",
-    "react-dom": "^18"
+    "react-dom": "^18",
+    "react-hook-form": "^7.49.3",
+    "react-international-phone": "^4.0.4",
+    "react-phone-input-2": "^2.15.1",
+    "valibot": "^0.25.0",
+    "validator": "^13.11.0",
+    "zod": "^3.22.4"
   },
   "devDependencies": {
     "@commitlint/cli": "^18.4.4",
     "@commitlint/config-conventional": "^18.4.4",
+    "@types/google-libphonenumber": "^7.4.30",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
+    "@types/validator": "^13.11.8",
     "autoprefixer": "^10.0.1",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
     "husky": "^8.0.3",
     "postcss": "^8",
+    "prettier": "^3.1.1",
+    "prettier-plugin-tailwindcss": "^0.5.11",
     "tailwindcss": "^3.3.0",
     "typescript": "^5"
   }

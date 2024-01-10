@@ -5,6 +5,21 @@ const config = {
   content: ['./index.html', './src/**/*.{ts,tsx}', './node_modules/primereact/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      colors: {
+        dark: '#050505',
+        'dark-80': 'rgba(5, 5, 5, 0.80)',
+        'dark-50': 'rgba(5, 5, 5, 0.50)',
+        'dark-30': 'rgba(5, 5, 5, 0.30)',
+        'dark-20': 'rgba(5, 5, 5, 0.20)',
+        'gray-80': 'rgba(255, 255, 255, 0.80)',
+        'gray-50': 'rgba(255, 255, 255, 0.50)',
+        'gray-30': 'rgba(255, 255, 255, 0.30)',
+        'gray-20': 'rgba(255, 255, 255, 0.20)',
+        switch: 'rgb(206, 205, 205)',
+        light: '#fff',
+        lighter: '#F8F8F8',
+        brand: '#9BB537'
+      },
       fontSize: {
         'fs-10-lh-14-fw-400': ['10px', { lineHeight: '1.4', fontWeight: 400 }],
         'fs-12-lh-normal-fw-400': ['12px', { lineHeight: 'normal', fontWeight: 400 }],
@@ -22,29 +37,15 @@ const config = {
         'fs-18-lh-133-fw-600': ['18px', { lineHeight: '1.33', fontWeight: 600 }],
         'fs-24-lh-116-fw-600': ['24px', { lineHeight: '1.16', fontWeight: 600 }],
         'fs-26-lh-120-fw-600': ['26px', { lineHeight: '1.2', fontWeight: 600 }],
-        'fs-36-lh-120-fw-600': ['36px', { lineHeight: '1.2', fontWeight: 600 }],
-      },
+        'fs-36-lh-120-fw-600': ['36px', { lineHeight: '1.2', fontWeight: 600 }]
+      }
     },
     screens: { mobile: '375px', tablet: '768px', 'max-tablet': { max: '768px' }, desktop: '1280px' },
-    colors: {
-      dark: '#050505',
-      'dark-80': 'rgba(5, 5, 5, 0.80)',
-      'dark-50': 'rgba(5, 5, 5, 0.50)',
-      'dark-30': 'rgba(5, 5, 5, 0.30)',
-      'dark-20': 'rgba(5, 5, 5, 0.20)',
-      'gray-80': 'rgba(255, 255, 255, 0.80)',
-      'gray-50': 'rgba(255, 255, 255, 0.50)',
-      'gray-30': 'rgba(255, 255, 255, 0.30)',
-      switch: 'rgb(206, 205, 205)',
-      light: '#fff',
-      lighter: '#F8F8F8',
-      brand: '#9BB537',
-    },
     container: {
       center: true,
       padding: { DEFAULT: '15px', md: '32px', lg: '100px' },
-      screens: { sm: '375px', md: '768px', lg: '1280px' },
-    },
+      screens: { sm: '375px', md: '768px', lg: '1280px' }
+    }
   },
   plugins: [
     plugin(({ addComponents, addVariant }) => {
@@ -59,14 +60,15 @@ const config = {
             fontSize: '14px',
             fontWeight: '500',
             lineHeight: 'normal',
-            transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transition:
+              'color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
             '&:is(:hover, :focus-visible)': {
               backgroundColor: '#9BB537',
               color: '#F8F8F8',
-              '.dark &': { color: '#050505' },
+              '.dark &': { color: '#050505' }
             },
             '.dark &': { color: '#FFF' },
-            '@media only screen and (width >= 768px)': { borderRadius: '15px', padding: '14px 28px' },
+            '@media only screen and (width >= 768px)': { borderRadius: '15px', padding: '14px 28px' }
           },
           '.btn-recipe': {
             borderRadius: '8px',
@@ -78,7 +80,7 @@ const config = {
             lineHeight: 'normal',
             transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
             '&:is(:hover, :focus)': { color: '#050505' },
-            '@media only screen and (width >= 1280px)': { padding: '8px 16px' },
+            '@media only screen and (width >= 1280px)': { padding: '8px 16px' }
           },
           '.btn-favorites': {
             borderRadius: '15px',
@@ -90,19 +92,20 @@ const config = {
             lineHeight: 'normal',
             transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
             '&:is(:hover, :focus)': { color: '#050505' },
-            '@media only screen and (width >= 768px)': { padding: '14px 28px' },
+            '@media only screen and (width >= 768px)': { padding: '14px 28px' }
           },
           '.btn-send': {
+            width: '295px',
             borderRadius: '15px',
-            backroundColor: '#9BB537',
-            padding: '15px 162px',
+            backgroundColor: '#9BB537',
+            height: '46px',
             color: '#F8F8F8',
             fontSize: '14px',
             fontWeight: '500',
             lineHeight: 'normal',
             transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
             '&:is(:hover, :focus)': { color: '#050505' },
-            '@media only screen and (width >= 768px)': { padding: '14px 162px' },
+            '@media only screen and (width >= 768px)': { width: '360px', height: '48px' }
           },
           '.btn-filters': {
             borderRadius: '15px',
@@ -112,9 +115,10 @@ const config = {
             fontSize: '14px',
             fontWeight: '500',
             lineHeight: 'normal',
-            transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transition:
+              'color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
             '&:is(:hover, :focus)': { backgroundColor: '#9BB537', color: '#F8F8F8' },
-            '@media only screen and (width >= 768px)': { fontSize: '16px', lineHeight: '1.25' },
+            '@media only screen and (width >= 768px)': { fontSize: '16px', lineHeight: '1.25' }
           },
           '.btn-categories': {
             borderRadius: '15px',
@@ -124,14 +128,15 @@ const config = {
             fontSize: '18px',
             fontWeight: '500',
             lineHeight: 'normal',
-            transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
+            transition:
+              'color 250ms cubic-bezier(0.4, 0, 0.2, 1), background-color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
             '.dark &': { border: '1px solid rgba(255, 255, 255, 0.20)', color: 'rgba(255, 255, 255, 0.50)' },
             '&:is(:hover, :focus)': { backgroundColor: '#9BB537', color: '#F8F8F8', borderColor: '#9BB537' },
-            '@media only screen and (width >= 1280px)': { padding: '14px 28px' },
-          },
+            '@media only screen and (width >= 1280px)': { padding: '14px 28px' }
+          }
         })
-    }),
-  ],
+    })
+  ]
 }
 
 export default config

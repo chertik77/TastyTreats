@@ -6,6 +6,8 @@ type ModalProps = PropsWithChildren & {
   hide: () => void
   pathTroughOptions: DialogPassThroughOptions
   footer?: ReactNode
+  unstyled?: boolean
+  header?: ReactNode
 }
 
 export const Modal = ({ isVisible, hide, children, pathTroughOptions, ...options }: ModalProps) => (
@@ -13,7 +15,7 @@ export const Modal = ({ isVisible, hide, children, pathTroughOptions, ...options
     visible={isVisible}
     onHide={hide}
     blockScroll
-    content={false}
+    content={undefined}
     dismissableMask
     pt={pathTroughOptions}
     focusOnShow={false}
