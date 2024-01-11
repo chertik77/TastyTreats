@@ -1,7 +1,6 @@
 import { Hero } from 'components/blocks/Hero'
 import { Categories } from 'components/blocks/categories/Categories'
 import { PopularRecipes } from 'components/blocks/popular-recipes/PopularRecipes'
-import { Recipes } from 'components/blocks/recipes/Recipes'
 
 export default function Home() {
   return (
@@ -9,7 +8,6 @@ export default function Home() {
       <Hero />
       <Categories />
       <PopularRecipes />
-      <Recipes />
     </>
   )
 }
