@@ -32,8 +32,8 @@ export const HeaderThemeSwitcher = ({ className }: HeaderThemeSwitcherProps) => 
       className: classNames(
         'absolute cursor-pointer inset-0 rounded-full before:absolute before:top-[10.8%] before:bg-lighter before:w-4 before:h-4 before:left-[6%] before:rounded-full before:transition',
         { 'bg-brand before:translate-x-6': checked, 'bg-switch': !checked }
-      ),
-    }),
+      )
+    })
   }
 
   return (

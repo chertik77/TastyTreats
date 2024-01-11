@@ -11,7 +11,7 @@ export const CategoriesList = ({ categories }: { categories: Category[] }) => {
   }
 
   return (
-    <ul className='h-[198px] overflow-y-scroll overscroll-none tablet:h-[416px] tablet:w-[176px] desktop:w-[235px]'>
+    <ul className='h-[198px] overflow-y-scroll tablet:h-[416px] tablet:w-[176px] desktop:w-[235px]'>
       {categories?.map(({ _id, name }) => (
         <li
           key={_id}

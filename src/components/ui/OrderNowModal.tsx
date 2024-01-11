@@ -1,51 +1,20 @@
-import { valibotResolver } from '@hookform/resolvers/valibot'
-import { PhoneNumberUtil } from 'google-libphonenumber'
-import { Controller, FieldValues, useForm } from 'react-hook-form'
-import { PhoneInput } from 'react-international-phone'
-import 'react-international-phone/style.css'
-import { custom, email, minLength, object, string, toTrimmed } from 'valibot'
+import { useRequest } from 'alova'
+import { addOrder } from 'api/addOrder'
+import { useOrderForm } from 'hooks/userOrderForm'
+import { promiseToast } from 'utils/helpers/promiseToast'
+import type { Data } from 'utils/schema'
+import { Field } from './Field'
 import { Modal } from './Modal'
+import { PhoneField } from './PhoneField'
 
 type OrderNowModalProps = {
   isModalOpen: boolean
   toggleModal: () => void
 }
 
-const phoneUtil = PhoneNumberUtil.getInstance()
-
-const isPhoneValid = (phone: string) => {
-  try {
-    return phoneUtil.isValidNumber(phoneUtil.parseAndKeepRawInput(phone))
-  } catch {
-    return false
-  }
-}
-
-const UserSchema = object({
-  name: string([
-    toTrimmed(),
-    minLength(1, 'Please enter your name.'),
-    minLength(5, 'Name field should contain minimum 5 characters')
-  ]),
-  phone: string('hello', [
-    minLength(1, 'Please enter your phone.'),
-    custom(isPhoneValid, 'Please enter a valid phone number')
-  ]),
-  email: string([
-    toTrimmed(),
-    minLength(1, 'Please enter your email.'),
-    email('Please enther a valid email')
-  ]),
-  comment: string([toTrimmed()])
-})
-
 export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) => {
-  const {
-    register,
-    handleSubmit,
-    control,
-    formState: { errors, isValid, isDirty }
-  } = useForm({ resolver: valibotResolver(UserSchema), mode: 'onBlur' })
+  const { send, loading } = useRequest(addOrder, { immediate: false })
+  const { register, reset, handleSubmit, control, errors, isValid } = useOrderForm()
 
   const OrderNowModalPathTroughOptions = {
     root: {
@@ -61,7 +30,18 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
     closeButtonIcon: { className: 'w-full h-full text-dark dark:text-light' }
   }
 
-  const submit = (data: FieldValues) => console.log(data)
+  const submit = async (data: Data) => {
+    const filteredData: Data = { name: data.name, phone: '+380000000000', email: data.email }
+
+    promiseToast(send(filteredData), {
+      loading: 'Sending...',
+      success: () => {
+        reset({ phone: '', name: '', email: '', comment: '' })
+        return 'Order submitted successfully!'
+      },
+      error: 'An error occurred while submitting the order.'
+    })
+  }
 
   return (
     <Modal
@@ -70,71 +50,15 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
       pathTroughOptions={OrderNowModalPathTroughOptions}
       header={<h2>Order now</h2>}>
       <form onSubmit={handleSubmit(submit)}>
-        <label className='mb-4 text-fs-14-lh-normal-fw-500 text-dark-50 dark:text-gray-50'>
-          Name
-          <input
-            type='text'
-            {...register('name')}
-            className='mt-2 block h-[46px] w-[295px] rounded-[15px] border border-dark-20 bg-transparent pl-[14px] text-fs-16-lh-125-fw-500 text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:w-[360px]'
-            autoComplete='given-name'
-          />
-          {errors.name?.message && (
-            <small className='mt-[10px] block text-red-600'>{errors.name?.message.toString()}</small>
-          )}
-        </label>
-        <Controller
-          name='phone'
-          control={control}
-          render={({ field }) => (
-            <label className='text-fs-14-lh-normal-fw-500 text-dark-50 dark:text-gray-50'>
-              Phone number
-              <PhoneInput
-                defaultCountry='us'
-                className='mb-4 mt-2 !w-[295px] tablet:!w-[360px]'
-                countrySelectorStyleProps={{
-                  buttonClassName:
-                    '!bg-transparent !rounded-l-[15px] w-[60px] !h-[46px] !border !border-dark-20 dark:!border-gray-20',
-                  dropdownStyleProps: {
-                    className:
-                      '!bg-light rounded-[15px] !w-[295px] tablet:!w-[360px] dark:!bg-dark border border-dark-20 dark:border-gray-20',
-                    listItemCountryNameClassName: 'dark:!text-light',
-                    listItemClassName: 'hocus:!bg-gray-20'
-                  }
-                }}
-                inputClassName='!border !border-dark-20 w-full !h-[46px] !bg-transparent !rounded-r-[15px] dark:!border-gray-20 !text-dark dark:!text-white !text-fs-16-lh-125-fw-500'
-                value={field.value}
-                onChange={phone => field.onChange(phone)}
-              />
-              {errors.phone?.message && (
-                <small className='mb-2 block text-red-600'>{errors.phone?.message.toString()}</small>
-              )}
-            </label>
-          )}
-        />
-        <label className='text-fs-14-lh-normal-fw-500 text-dark-50 dark:text-gray-50'>
-          Email
-          <input
-            {...register('email')}
-            type='text'
-            className='mb-4 mt-2 block h-[46px] w-[295px] rounded-[15px] border border-dark-20 bg-transparent pl-[14px] text-fs-16-lh-125-fw-500 text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:mb-[18px] tablet:w-[360px]'
-            autoComplete='email'
-          />
-          {errors.email?.message && (
-            <small className='mb-2 block text-red-600'>{errors.email?.message.toString()}</small>
-          )}
-        </label>
-        <label className='text-fs-14-lh-normal-fw-500 text-dark-50 dark:text-gray-50'>
-          Comment
-          <textarea
-            className='mb-10 mt-2 block h-[100px] w-[295px] resize-none rounded-[15px] border border-dark-20 bg-transparent pl-[14px] pt-[14px] text-fs-16-lh-125-fw-500 text-dark focus:outline-brand dark:border-gray-20 dark:text-white tablet:w-[360px]'
-            {...register('comment')}
-          />
-        </label>
+        <Field labelName='Name' errors={errors} {...register('name')} autoComplete='given-name' />
+        <PhoneField control={control} errors={errors} />
+        <Field labelName='Email' errors={errors} {...register('email')} autoComplete='email' />
+        <Field labelName='Comment' {...register('comment')} isTextArea />
         <button
           type='submit'
           className='btn-send disabled:cursor-not-allowed disabled:opacity-50'
           disabled={!isValid}>
-          Send
+          {loading ? 'Sending...' : 'Send'}
         </button>
       </form>
     </Modal>

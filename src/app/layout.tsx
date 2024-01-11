@@ -5,6 +5,7 @@ import { Inter } from 'next/font/google'
 import 'primeicons/primeicons.css'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
 import type { PropsWithChildren } from 'react'
+import { Toaster } from 'sonner'
 import './globals.css'
 import { Providers } from './providers'
 
@@ -22,7 +23,10 @@ const RootLayout = ({ children }: PropsWithChildren) => (
       <Container>
         <Providers>
           <Header />
-          <main>{children}</main>
+          <main>
+            <Toaster position='top-right' richColors />
+            {children}
+          </main>
         </Providers>
       </Container>
     </body>
