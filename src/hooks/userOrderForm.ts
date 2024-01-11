@@ -1,4 +1,5 @@
 import { valibotResolver } from '@hookform/resolvers/valibot'
+import { useEffect } from 'react'
 import { useForm } from 'react-hook-form'
 import useFormPersist from 'react-hook-form-persist'
 import { orderSchema, type Data } from 'utils/schema'
@@ -19,7 +20,10 @@ export const useOrderForm = () => {
     progressive: true
   })
 
-  useFormPersist('order-now-form', { watch, setValue, storage: window.localStorage })
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/rules-of-hooks
+    useFormPersist('order-now-form', { watch, setValue, storage: window.localStorage })
+  }, [setValue, watch])
 
   return { register, handleSubmit, control, reset, errors, isValid }
 }
