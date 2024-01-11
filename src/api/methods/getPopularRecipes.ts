@@ -1,10 +1,5 @@
 import { alovaInstance } from 'api'
+import { getPopularRecipesEndpoint } from 'constants/endpoints'
+import type { PopularRecipe } from '../methods-types'
 
-export type PopularRecipe = {
-  _id: string
-  title: string
-  description: string
-  preview: string
-}
-
-export const getPopularRecipes = () => alovaInstance.Get<PopularRecipe[]>('/recipes/popular')
+export const getPopularRecipes = () => alovaInstance.Get<PopularRecipe[]>(getPopularRecipesEndpoint)

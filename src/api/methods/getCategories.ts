@@ -1,8 +1,5 @@
 import { alovaInstance } from 'api'
+import { getCategoriesEndpoint } from 'constants/endpoints'
+import type { Category } from '../methods-types'
 
-export type Category = {
-  _id: string
-  name: string
-}
-
-export const getCategories = () => alovaInstance.Get<Category[]>('/categories')
+export const getCategories = () => alovaInstance.Get<Category[]>(getCategoriesEndpoint)

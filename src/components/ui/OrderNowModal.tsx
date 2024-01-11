@@ -21,6 +21,7 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
       className:
         'w-[335px] min-h-[582px] bg-light rounded-[15px] relative tablet:w-[440px] tablet:min-h-[632px] tablet:px-10 shadow-none dark:bg-dark'
     },
+    mask: { className: 'backdrop-blur-md backdrop-saturate-150 bg-overlay/30' },
     content: { className: 'tablet:pl-0 dark:bg-dark overflow-hidden' },
     header: { className: 'pt-[28px] pb-[28px] tablet:pt-10 tablet:pb-10 tablet:pl-0 dark:bg-dark' },
     headerTitle: { className: 'text-fs-18-lh-122-fw-600 text-dark uppercase dark:text-light' },
@@ -34,12 +35,12 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
     const filteredData: Data = { name: data.name, phone: '+380000000000', email: data.email }
 
     promiseToast(send(filteredData), {
-      loading: 'Sending...',
+      loading: 'Processing your order...',
       success: () => {
-        reset({ phone: '', name: '', email: '', comment: '' })
-        return 'Order submitted successfully!'
+        reset()
+        return 'Your order has been successfully submitted. Thank you!'
       },
-      error: 'An error occurred while submitting the order.'
+      error: 'We apologize, but an error occurred during the order submission. Please try again.'
     })
   }
 

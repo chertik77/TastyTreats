@@ -12,7 +12,12 @@ export const useOrderForm = () => {
     setValue,
     reset,
     formState: { errors, isValid }
-  } = useForm<Data>({ resolver: valibotResolver(orderSchema), mode: 'onChange' })
+  } = useForm<Data>({
+    resolver: valibotResolver(orderSchema),
+    mode: 'onChange',
+    defaultValues: { phone: '' },
+    progressive: true
+  })
 
   useFormPersist('order-now-form', { watch, setValue, storage: window.localStorage })
 

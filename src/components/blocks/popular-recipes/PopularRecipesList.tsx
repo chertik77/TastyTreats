@@ -1,4 +1,4 @@
-import { PopularRecipe } from 'api/methods/getPopularRecipes'
+import { PopularRecipe } from 'api/methods-types'
 import Image from 'next/image'
 import Link from 'next/link'
 

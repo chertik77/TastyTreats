@@ -1,6 +1,6 @@
 'use client'
 
-import { Category } from 'api/methods/getCategories'
+import { Category } from 'api/methods-types'
 import { useState } from 'react'
 
 export const CategoriesList = ({ categories }: { categories: Category[] }) => {
