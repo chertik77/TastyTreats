@@ -15,12 +15,13 @@ export const PhoneField = ({ control, errors }: PhoneField) => {
       name='phone'
       defaultValue=''
       control={control}
-      render={({ field, fieldState: { isDirty }, formState: { isSubmitting, isValidating } }) => (
+      render={({ field }) => (
         <label className='mb-4 block text-fs-14-lh-normal-fw-500 text-dark-50 dark:text-gray-50 tablet:mb-[18px]'>
           Phone number
           <PhoneInput
             defaultCountry='us'
-            // hideDropdown
+            inputProps={{ autoComplete: 'tel' }}
+            hideDropdown
             className='mt-2 !w-[295px] tablet:!w-[360px]'
             countrySelectorStyleProps={{
               buttonClassName:

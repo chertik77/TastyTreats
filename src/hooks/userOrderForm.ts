@@ -1,6 +1,7 @@
 import { valibotResolver } from '@hookform/resolvers/valibot'
 import { useForm } from 'react-hook-form'
 import useFormPersist from 'react-hook-form-persist'
+import { isLocalStorageDefined } from 'utils/helpers/isLocalStorageDefined'
 import { orderSchema, type Data } from 'utils/schema'
 
 export const useOrderForm = () => {
@@ -18,14 +19,7 @@ export const useOrderForm = () => {
     progressive: true
   })
 
-  const isWindowDefined = () => {
-    if (typeof window !== 'undefined') {
-      return window.localStorage
-    }
-    return undefined
-  }
-
-  useFormPersist('order-now-form', { watch, setValue, storage: isWindowDefined() })
+  useFormPersist('order-now-form', { watch, setValue, storage: isLocalStorageDefined() })
 
   return { register, handleSubmit, control, reset, errors, isValid }
 }

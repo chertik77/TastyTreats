@@ -73,7 +73,7 @@ const config = {
           '.btn-recipe': {
             borderRadius: '8px',
             padding: '8px 14px',
-            backroundColor: '#9BB537',
+            backgroundColor: '#9BB537',
             color: '#F8F8F8',
             fontSize: '12px',
             fontWeight: '500',
@@ -84,7 +84,7 @@ const config = {
           },
           '.btn-favorites': {
             borderRadius: '15px',
-            backroundColor: '#9BB537',
+            backgroundColor: '#9BB537',
             padding: '12px 24px',
             color: '#F8F8F8',
             fontSize: '14px',
