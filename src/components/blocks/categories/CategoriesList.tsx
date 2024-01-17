@@ -1,11 +1,9 @@
 'use client'
 
 import { Category } from 'api/methods-types'
-import { useQueryState } from 'nuqs'
 import { useState } from 'react'
 
 export const CategoriesList = ({ categories }: { categories: Category[] }) => {
-  const [_, setName] = useQueryState('category')
   const [activeButton, setActiveButton] = useState<string | null>(null)
 
   const handleButtonClick = (id: string) => {
@@ -23,7 +21,6 @@ export const CategoriesList = ({ categories }: { categories: Category[] }) => {
             className={`main-transition hover:text-brand ${activeButton === _id && 'text-brand'}`}
             onClick={() => {
               handleButtonClick(_id)
-              setName(name)
             }}>
             {name}
           </button>

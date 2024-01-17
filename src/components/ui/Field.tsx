@@ -1,16 +1,15 @@
 import { ErrorMessage } from '@hookform/error-message'
-import { ForwardedRef, forwardRef } from 'react'
+import { forwardRef, type ForwardedRef, type InputHTMLAttributes } from 'react'
 import { FieldErrors } from 'react-hook-form'
 
-type Field = {
+type Field = InputHTMLAttributes<HTMLInputElement> & {
   errors?: FieldErrors
   labelName: string
-  autoComplete?: string
   isTextArea?: boolean
 }
 
 export const Field = forwardRef(
-  ({ labelName, isTextArea, errors, ...rest }: Field, ref: ForwardedRef<HTMLInputElement>) => (
+  ({ labelName, isTextArea, errors, ...options }: Field, ref: ForwardedRef<HTMLInputElement>) => (
     <label className='mb-4 block text-fs-14-lh-normal-fw-500 text-dark-50 dark:text-gray-50 tablet:mb-[18px]'>
       {labelName}
       {isTextArea ? (
@@ -19,7 +18,7 @@ export const Field = forwardRef(
         <>
           <input
             type='text'
-            {...rest}
+            {...options}
             className='mt-2 block h-[46px] w-[295px] rounded-[15px] border border-dark-20 bg-transparent pl-[14px] text-fs-16-lh-125-fw-500 text-dark autofill:bg-clip-text focus:outline-brand dark:border-gray-20 dark:text-white tablet:w-[360px]'
             ref={ref}
           />

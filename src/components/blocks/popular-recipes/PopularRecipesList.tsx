@@ -2,16 +2,13 @@
 
 import { PopularRecipe } from 'api/methods-types'
 import Image from 'next/image'
-import { useQueryState } from 'nuqs'
 
 export const PopularRecipesList = ({ popularRecipes }: { popularRecipes: PopularRecipe[] }) => {
-  const [_, setId] = useQueryState('id')
-
   return (
     <ul>
       {popularRecipes?.map(({ _id, title, description, preview }) => (
         <li key={_id} className='mb-6 last-of-type:mb-0 tablet:mb-4 max-tablet:even:hidden'>
-          <button className='flex gap-4 tablet:gap-2 desktop:gap-4' onClick={() => setId(_id)}>
+          <button className='flex gap-4 tablet:gap-2 desktop:gap-4'>
             <Image
               src={preview}
               alt={title}

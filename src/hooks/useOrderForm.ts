@@ -14,7 +14,8 @@ export const useOrderForm = () => {
     reset,
     formState: { errors, isValid }
   } = useForm<Data>({
-    resolver: valibotResolver(orderSchema),
+    defaultValues: { phone: '', email: '', name: '' },
+    resolver: valibotResolver(orderSchema, { abortEarly: true }),
     mode: 'onChange',
     progressive: true
   })

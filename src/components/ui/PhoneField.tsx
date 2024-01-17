@@ -1,21 +1,15 @@
 import { ErrorMessage } from '@hookform/error-message'
-import { Control, Controller, FieldErrors } from 'react-hook-form'
+import { Control, Controller } from 'react-hook-form'
 import { PhoneInput } from 'react-international-phone'
 import 'react-international-phone/style.css'
 import type { Data } from 'utils/schema'
 
-type PhoneField = {
-  control: Control<Data>
-  errors: FieldErrors
-}
-
-export const PhoneField = ({ control, errors }: PhoneField) => {
+export const PhoneField = ({ control }: { control: Control<Data> }) => {
   return (
     <Controller
       name='phone'
-      defaultValue=''
       control={control}
-      render={({ field }) => (
+      render={({ field, formState: { errors } }) => (
         <label className='mb-4 block text-fs-14-lh-normal-fw-500 text-dark-50 dark:text-gray-50 tablet:mb-[18px]'>
           Phone number
           <PhoneInput

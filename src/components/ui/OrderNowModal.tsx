@@ -1,6 +1,6 @@
 import { useRequest } from 'alova'
 import { addOrder } from 'api/addOrder'
-import { useOrderForm } from 'hooks/userOrderForm'
+import { useOrderForm } from 'hooks/useOrderForm'
 import { promiseToast } from 'utils/helpers/promiseToast'
 import { Data } from 'utils/schema'
 import { Button } from './Button'
@@ -47,7 +47,7 @@ export const OrderNowModal = ({ isModalOpen, toggleModal }: OrderNowModalProps) 
           </Button>
           <form onSubmit={handleSubmit(submit)}>
             <Field labelName='Name' errors={errors} {...register('name')} autoComplete='given-name' />
-            <PhoneField control={control} errors={errors} />
+            <PhoneField control={control} />
             <Field labelName='Email' errors={errors} {...register('email')} autoComplete='email' />
             <Field labelName='Comment' {...register('comment')} isTextArea />
             <Button
