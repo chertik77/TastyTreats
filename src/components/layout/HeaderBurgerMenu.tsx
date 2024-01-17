@@ -9,11 +9,8 @@ export const HeaderBurgerMenu = () => {
   const { isModalOpen, toggleModal } = useModal()
 
   const BurgerDialogPassThroughOptions = {
-    root: { className: 'fixed right-0 top-0 shadow-none w-[200px] min-h-[100dvh]' },
-    header: { className: 'bg-brand dark:bg-dark rounded-none' },
     footer: { className: 'bg-brand dark:bg-dark' },
-    content: { className: 'bg-brand dark:bg-dark' },
-    closeButtonIcon: { className: 'w-8 h-8 text-light' },
+    closeButtonIcon: { className: 'w-8 h-8 text-light' }
   }
 
   return (
@@ -22,9 +19,14 @@ export const HeaderBurgerMenu = () => {
         <i className='pi pi-align-justify text-2xl text-dark dark:text-light'></i>
       </button>
       <Modal
-        isVisible={isModalOpen}
-        hide={toggleModal}
-        pathTroughOptions={BurgerDialogPassThroughOptions}
+        visible={isModalOpen}
+        onHide={toggleModal}
+        content={undefined}
+        headerClassName='bg-brand dark:bg-dark rounded-none'
+        contentClassName='bg-brand dark:bg-dark'
+        className='m-0 min-h-dvh w-[200px] shadow-none'
+        position='right'
+        pt={BurgerDialogPassThroughOptions}
         footer={<HeaderThemeSwitcher />}>
         <HeaderNav
           className='flex flex-col items-center gap-4 pt-[60px] text-fs-12-lh-normal-fw-500 text-light'
