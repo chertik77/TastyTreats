@@ -1,5 +1,6 @@
 'use client'
 
+import { CartIcon } from 'components/ui/CartIcon'
 import { OrderNowModal } from 'components/ui/OrderNowModal'
 import { useModal } from 'hooks/useModal'
 
@@ -9,9 +10,9 @@ export const HeaderOrderNowModalBtn = () => {
   return (
     <>
       <button onClick={toggleModal} className='leading-[0]'>
-        <i className='pi pi-shopping-cart text-2xl'></i>
+        <CartIcon />
       </button>
-      <OrderNowModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
+      {isModalOpen && <OrderNowModal isModalOpen={isModalOpen} toggleModal={toggleModal} />}
     </>
   )
 }

@@ -18,22 +18,24 @@ export const HeaderBurgerMenu = () => {
       <button onClick={toggleModal} className='leading-[0] tablet:hidden' type='button'>
         <i className='pi pi-align-justify text-2xl text-dark dark:text-light'></i>
       </button>
-      <Modal
-        visible={isModalOpen}
-        onHide={toggleModal}
-        content={undefined}
-        headerClassName='bg-brand dark:bg-dark rounded-none'
-        contentClassName='bg-brand dark:bg-dark'
-        className='m-0 min-h-dvh w-[200px] shadow-none'
-        position='right'
-        pt={BurgerDialogPassThroughOptions}
-        footer={<HeaderThemeSwitcher />}>
-        <HeaderNav
-          className='flex flex-col items-center gap-4 pt-[60px] text-fs-12-lh-normal-fw-500 text-light'
-          activeLink='dark:aria-[current=page]:text-brand'
-          hideModal={toggleModal}
-        />
-      </Modal>
+      {isModalOpen && (
+        <Modal
+          visible={isModalOpen}
+          onHide={toggleModal}
+          content={undefined}
+          headerClassName='bg-brand dark:bg-dark rounded-none'
+          contentClassName='bg-brand dark:bg-dark'
+          className='m-0 min-h-dvh w-[200px] shadow-none'
+          position='right'
+          pt={BurgerDialogPassThroughOptions}
+          footer={<HeaderThemeSwitcher />}>
+          <HeaderNav
+            className='flex flex-col items-center gap-4 pt-[60px] text-fs-12-lh-normal-fw-500 text-light'
+            activeLink='dark:aria-[current=page]:text-brand'
+            hideModal={toggleModal}
+          />
+        </Modal>
+      )}
     </>
   )
 }

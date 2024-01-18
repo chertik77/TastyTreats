@@ -7,7 +7,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <div className='gap-8 tablet:flex'>
+      <div className='gap-8 tablet:flex desktop:gap-16'>
         <div>
           <Categories />
           <PopularRecipes />

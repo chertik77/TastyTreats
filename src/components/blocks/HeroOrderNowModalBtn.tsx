@@ -11,7 +11,7 @@ export const HeroOrderNowModalBtn = () => {
       <button className='btn-order' type='button' onClick={toggleModal}>
         Order Now
       </button>
-      <OrderNowModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
+      {isModalOpen && <OrderNowModal isModalOpen={isModalOpen} toggleModal={toggleModal} />}
     </>
   )
 }

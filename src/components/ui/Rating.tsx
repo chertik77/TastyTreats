@@ -4,7 +4,7 @@ export const Rating = ({ rating }: { rating: number }) => {
   return (
     <StarRatings
       rating={rating}
-      starDimension='18px'
+      starDimension='15px'
       starSpacing='2px'
       starRatedColor='#EEA10C'
       svgIconViewBox='0 0 14 14'
