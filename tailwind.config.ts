@@ -5,6 +5,7 @@ const config = {
   content: ['./index.html', './src/**/*.{ts,tsx}', './node_modules/primereact/**/*.{js,ts,jsx,tsx}'],
   theme: {
     extend: {
+      boxShadow: { 'phone-select-dark': '0px 2px 5px 0px rgba(177, 177, 177, 0.40);' },
       colors: {
         dark: '#050505',
         'dark-80': 'rgba(5, 5, 5, 0.80)',

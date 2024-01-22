@@ -1,5 +1,6 @@
 import { Hero } from 'components/blocks/Hero'
 import { Categories } from 'components/blocks/categories/Categories'
+import { Filters } from 'components/blocks/filters/Filters'
 import { PopularRecipes } from 'components/blocks/popular-recipes/PopularRecipes'
 import { Recipes } from 'components/blocks/recipes/Recipes'
 
@@ -12,6 +13,7 @@ export default function Home() {
           <Categories />
           <PopularRecipes />
         </div>
+        <Filters />
         <Recipes />
       </div>
     </>

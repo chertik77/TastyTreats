@@ -13,15 +13,15 @@ export const PhoneField = ({ control }: { control: Control<Data> }) => (
         Phone number
         <PhoneInput
           defaultCountry='us'
-          inputProps={{ autoComplete: 'tel' }}
-          hideDropdown
+          // hideDropdown
           className='mt-2 !w-[295px] tablet:!w-[360px]'
           countrySelectorStyleProps={{
             buttonClassName:
               '!bg-transparent !rounded-l-[15px] w-[60px] !h-[46px] !border !border-dark-20 dark:!border-gray-20',
+            buttonContentWrapperClassName: 'gap-0.5',
             dropdownStyleProps: {
               className:
-                '!bg-light rounded-[15px] !w-[295px] tablet:!w-[360px] dark:!bg-dark border border-dark-20 dark:border-gray-20',
+                '!bg-light rounded-[15px] !w-[295px] tablet:!w-[360px] dark:!bg-dark border border-dark-20 dark:border-gray-20 dark:shadow-phone-select-dark',
               listItemCountryNameClassName: 'dark:!text-light',
               listItemClassName: 'hocus:!bg-gray-20'
             }

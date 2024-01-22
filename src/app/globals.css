@@ -5,3 +5,7 @@
 .react-international-phone-country-selector-dropdown__list-item--focused {
   background-color: rgba(255, 255, 255, 0.2) !important;
 }
+
+.p-autocomplete-panel .p-autocomplete-items .p-autocomplete-item.p-highlight {
+  @apply bg-light text-dark-50;
+}

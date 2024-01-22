@@ -6,6 +6,7 @@ export const alovaInstance = createAlova({
   statesHook: ReactHook,
   baseURL: process.env.API_BASE_URL,
   requestAdapter: GlobalFetch(),
+  cacheLogger: null,
   responded: {
     onSuccess: async r => {
       if (r.status >= 400) {
