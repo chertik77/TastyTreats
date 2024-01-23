@@ -10,4 +10,13 @@ type Recipe = {
   }[]
 }
 
-export const getRecipes = () => alovaInstance.Get<Recipe>('/recipes', { params: { limit: 9 } })
+type Params = {
+  limit?: number
+  time?: number
+  category?: string
+  area?: string
+  ingredient?: string
+  page?: number
+}
+
+export const getRecipes = (params: Params) => alovaInstance.Get<Recipe>('/recipes', { params: params })

@@ -1,6 +1,6 @@
 import { alovaInstance } from 'api'
 
-type Area = {
+export type Area = {
   _id: string
   name: string
 }

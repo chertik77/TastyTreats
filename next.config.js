@@ -6,9 +6,7 @@ const nextConfig = {
     API_BASE_URL: 'https://tasty-treats-backend.p.goit.global/api'
   },
   compiler: {
-    removeConsole: {
-      exclude: ['error']
-    }
+    removeConsole: true
   }
 }
 
