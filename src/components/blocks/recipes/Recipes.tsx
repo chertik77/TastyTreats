@@ -1,5 +1,5 @@
 import { getRecipes } from 'api/methods/getRecipes'
-import { searchParamsCache } from 'app/page'
+import { searchParamsCache } from 'utils/helpers/searchParamsCache'
 import { RecipesList } from './RecipesList'
 
 export const Recipes = async () => {

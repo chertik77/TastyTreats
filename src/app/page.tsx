@@ -3,13 +3,8 @@ import { Categories } from 'components/blocks/categories/Categories'
 import { Filters } from 'components/blocks/filters/Filters'
 import { PopularRecipes } from 'components/blocks/popular-recipes/PopularRecipes'
 import { Recipes } from 'components/blocks/recipes/Recipes'
-import { createSearchParamsCache, parseAsString, type SearchParams } from 'nuqs/parsers'
-
-export const searchParamsCache = createSearchParamsCache({
-  query: parseAsString.withDefault(''),
-  area: parseAsString.withDefault(''),
-  category: parseAsString.withDefault('')
-})
+import type { SearchParams } from 'nuqs/parsers'
+import { searchParamsCache } from 'utils/helpers/searchParamsCache'
 
 export default function Home({ searchParams }: { searchParams: SearchParams }) {
   searchParamsCache.parse(searchParams)
