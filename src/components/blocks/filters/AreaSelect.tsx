@@ -5,7 +5,7 @@ import { useQueryState } from 'nuqs'
 import { Dropdown } from 'primereact/dropdown'
 
 export const AreaSelect = ({ areas }: { areas: Area[] }) => {
-  const [area, setArea] = useQueryState('area', { defaultValue: 'Any' })
+  const [area, setArea] = useQueryState('area', { shallow: false })
 
   return (
     <label className='mb-2 text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>

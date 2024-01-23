@@ -4,7 +4,7 @@ import { Category } from 'api/methods-types'
 import { useQueryState } from 'nuqs'
 
 export const CategoriesList = ({ categories }: { categories: Category[] }) => {
-  const [category, setCategory] = useQueryState('category')
+  const [category, setCategory] = useQueryState('category', { shallow: false })
 
   return (
     <ul className='h-[198px] overflow-y-scroll tablet:h-[416px] tablet:w-[176px] desktop:w-[235px]'>

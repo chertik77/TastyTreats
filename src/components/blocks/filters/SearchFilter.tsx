@@ -7,7 +7,7 @@ import { useMemo, useState } from 'react'
 
 export const SearchFilter = ({ recipesTitles }: { recipesTitles: Recipe }) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
-  const [query, setQuery] = useQueryState('query')
+  const [query, setQuery] = useQueryState('query', { shallow: false })
 
   const search = useMemo(
     () => (event: AutoCompleteCompleteEvent) => {
