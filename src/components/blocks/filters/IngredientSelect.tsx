@@ -1,17 +1,19 @@
 'use client'
 
-import { Area } from 'api/methods/getAreas'
+import type { Ingredient } from 'api/methods/getIngredients'
 import { useQueryState } from 'nuqs'
 import { Dropdown } from 'primereact/dropdown'
+import { memo } from 'react'
 
-export const AreaSelect = ({ areas }: { areas: Area[] }) => {
-  const [area, setArea] = useQueryState('area', { shallow: false })
+export const IngredientSelect = memo(({ ingredients }: { ingredients: Ingredient[] }) => {
+  const ingredient = ingredients.map(ingredient => ingredient)
+  const [ingredientParam, setIngredientParam] = useQueryState('ingredient', { shallow: false })
 
   return (
     <label className='mb-2 text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
       Area
       <Dropdown
-        value={area}
+        value={ingredient.find(({ _id }) => _id === ingredientParam)?.name}
         pt={{
           root: {
             className:
@@ -29,7 +31,10 @@ export const AreaSelect = ({ areas }: { areas: Area[] }) => {
               'text-fs-14-lh-normal-fw-500 text-dark-30 dark:text-gray-30 hover:bg-transparent hover:text-dark dark:hover:text-white'
           }
         }}
-        onChange={e => setArea(e.value)}
+        onChange={e => {
+          const selectedIngredient = ingredient.find(({ name }) => name === e.value)
+          setIngredientParam(selectedIngredient?._id || '')
+        }}
         dropdownIcon={
           <svg xmlns='http://www.w3.org/2000/svg' width='18' height='18' viewBox='0 0 18 18' fill='none'>
             <path
@@ -45,8 +50,10 @@ export const AreaSelect = ({ areas }: { areas: Area[] }) => {
         }
         showOnFocus
         scrollHeight='171px'
-        options={areas?.map(area => area.name)}
+        options={ingredients?.map(ingredient => ingredient.name)}
       />
     </label>
   )
-}
+})
+
+IngredientSelect.displayName = 'IngredientSelect'

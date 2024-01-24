@@ -30,8 +30,8 @@ export const HeaderBurgerMenu = () => {
           pt={BurgerDialogPassThroughOptions}
           footer={<HeaderThemeSwitcher />}>
           <HeaderNav
-            className='flex flex-col items-center gap-4 pt-[60px] text-fs-12-lh-normal-fw-500 text-light'
-            activeLink='dark:aria-[current=page]:text-brand'
+            className='flex flex-col items-center gap-4 pt-[60px] text-fs-12-lh-normal-fw-500'
+            isBurgerMenu
             hideModal={toggleModal}
           />
         </Modal>

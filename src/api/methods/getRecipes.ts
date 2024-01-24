@@ -1,4 +1,5 @@
 import { alovaInstance } from 'api'
+import { API_ENDPOINTS } from 'config/api-endpoints'
 
 type Recipe = {
   results: {
@@ -19,4 +20,5 @@ type Params = {
   page?: number
 }
 
-export const getRecipes = (params: Params) => alovaInstance.Get<Recipe>('/recipes', { params: params })
+export const getRecipes = (params: Params) =>
+  alovaInstance.Get<Recipe>(API_ENDPOINTS.recipes, { params: params })

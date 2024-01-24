@@ -5,11 +5,11 @@ import { RecipesList } from './RecipesList'
 export const Recipes = async () => {
   const category = searchParamsCache.get('category')
   const area = searchParamsCache.get('area')
-  const recipes = await getRecipes({ limit: 9, category, area })
+  const ingredient = searchParamsCache.get('ingredient')
+  const recipes = await getRecipes({ limit: 9, category, area, ingredient })
 
   return (
     <>
-      <div>{category}</div>
       <RecipesList recipes={recipes} />
     </>
   )

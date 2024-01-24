@@ -6,10 +6,7 @@ import { HeaderThemeSwitcher } from './HeaderThemeSwitcher'
 
 export const Header = () => (
   <header className='flex items-center justify-between pt-5 tablet:pt-[30px] desktop:pt-10'>
-    <HeaderNav
-      className='flex gap-4 text-fs-12-lh-normal-fw-400 max-tablet:hidden'
-      activeLink='aria-[current=page]:text-brand'
-    />
+    <HeaderNav className='flex gap-4 text-fs-12-lh-normal-fw-400 max-tablet:hidden' />
     <Link href='/' className='text-fs-16-lh-1125-fw-600 tablet:text-fs-18-lh-110-fw-600'>
       <span className='text-brand'>tasty</span>treats.
     </Link>

@@ -1,6 +1,6 @@
 'use client'
 
-import { PopularRecipe } from 'api/methods-types'
+import type { PopularRecipe } from 'api/methods-types'
 import Image from 'next/image'
 
 export const PopularRecipesList = ({ popularRecipes }: { popularRecipes: PopularRecipe[] }) => {

@@ -1,5 +1,3 @@
-'use client'
-
 import { Recipe } from 'api/methods-types'
 import { Rating } from 'components/ui/Rating'
 

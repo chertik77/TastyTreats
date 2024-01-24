@@ -1,3 +1,5 @@
+'use client'
+
 import StarRatings from 'react-star-ratings'
 
 export const Rating = ({ rating }: { rating: number }) => {
