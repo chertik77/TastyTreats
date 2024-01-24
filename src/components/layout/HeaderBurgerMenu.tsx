@@ -31,7 +31,6 @@ export const HeaderBurgerMenu = () => {
           footer={<HeaderThemeSwitcher />}>
           <HeaderNav
             className='flex flex-col items-center gap-4 pt-[60px] text-fs-12-lh-normal-fw-500'
-            isBurgerMenu
             hideModal={toggleModal}
           />
         </Modal>
