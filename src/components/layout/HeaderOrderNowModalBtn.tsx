@@ -9,10 +9,12 @@ export const HeaderOrderNowModalBtn = () => {
 
   return (
     <>
-      <button onClick={toggleModal} className='leading-[0]'>
+      <button className='leading-[0]' onClick={toggleModal}>
         <CartIcon />
       </button>
-      {isModalOpen && <OrderNowModal isModalOpen={isModalOpen} toggleModal={toggleModal} />}
+      {isModalOpen && (
+        <OrderNowModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
+      )}
     </>
   )
 }

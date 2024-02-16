@@ -1,13 +1,13 @@
 class Endpoints {
-  recipes = '/recipes'
+  addOrder = '/orders/add'
 
-  popularRecipes = `${this.recipes}/popular`
-  recipeById = (id: string) => `${this.recipes}/${id}`
+  recipes = '/recipes'
+  addRecipeRating = (id: string) => `${this.recipes}/${id}/rating`
+  areas = '/areas'
   categories = '/categories'
   ingredients = '/ingredients'
-  areas = '/areas'
-  addOrder = '/orders/add'
-  addRecipeRating = (id: string) => `${this.recipes}/${id}/rating`
+  popularRecipes = `${this.recipes}/popular`
+  recipeById = (id: string) => `${this.recipes}/${id}`
 }
 
 export const API_ENDPOINTS = new Endpoints()

@@ -20,14 +20,14 @@ export const HeaderNav = ({ className, hideModal }: HeaderNavProps) => {
     <nav className={className}>
       {links.map(({ href, title }) => (
         <Link
-          href={href}
-          key={href}
-          onClick={hideModal}
           className={
             pathname === href
               ? 'text-brand max-tablet:text-white max-tablet:dark:text-brand'
               : 'main-transition hocus:text-brand max-tablet:text-white'
-          }>
+          }
+          href={href}
+          key={href}
+          onClick={hideModal}>
           {title}
         </Link>
       ))}

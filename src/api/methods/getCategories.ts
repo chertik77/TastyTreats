@@ -6,4 +6,5 @@ export type Category = {
   name: string
 }
 
-export const getCategories = () => alovaInstance.Get<Category[]>(API_ENDPOINTS.categories)
+export const getCategories = () =>
+  alovaInstance.Get<Category[]>(API_ENDPOINTS.categories)

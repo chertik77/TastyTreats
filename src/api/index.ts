@@ -3,10 +3,9 @@ import GlobalFetch from 'alova/GlobalFetch'
 import ReactHook from 'alova/react'
 
 export const alovaInstance = createAlova({
-  statesHook: ReactHook,
   baseURL: process.env.API_BASE_URL,
-  requestAdapter: GlobalFetch(),
   cacheLogger: false,
+  requestAdapter: GlobalFetch(),
   responded: {
     onSuccess: async r => {
       if (r.status >= 400) {
@@ -15,5 +14,6 @@ export const alovaInstance = createAlova({
       const json = await r.json()
       return json
     }
-  }
+  },
+  statesHook: ReactHook
 })

@@ -1,10 +1,12 @@
-import { ExternalToast, toast } from 'sonner'
+import { toast, type ExternalToast } from 'sonner'
 
 type PromiseData<ToastData = unknown> = ExternalToast & {
+  error: ((error: Error) => string) | string
   loading: string
-  success: string | ((data: ToastData) => string)
-  error: string | ((error: Error) => string)
+  success: ((data: ToastData) => string) | string
 }
 
-export const promiseToast = (promise: Promise<unknown>, options: PromiseData<unknown>) =>
-  toast.promise(promise, options)
+export const promiseToast = (
+  promise: Promise<unknown>,
+  options: PromiseData<unknown>
+) => toast.promise(promise, options)

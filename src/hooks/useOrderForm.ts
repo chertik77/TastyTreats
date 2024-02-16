@@ -6,21 +6,25 @@ import { orderSchema, type Data } from 'utils/schema'
 
 export const useOrderForm = () => {
   const {
-    register,
-    handleSubmit,
     control,
-    watch,
-    setValue,
+    formState: { errors, isValid },
+    handleSubmit,
+    register,
     reset,
-    formState: { errors, isValid }
+    setValue,
+    watch
   } = useForm<Data>({
-    defaultValues: { phone: '', email: '', name: '' },
-    resolver: valibotResolver(orderSchema, { abortEarly: true }),
+    defaultValues: { email: '', name: '', phone: '' },
     mode: 'onChange',
-    progressive: true
+    progressive: true,
+    resolver: valibotResolver(orderSchema, { abortEarly: true })
   })
 
-  useFormPersist('order-now-form', { watch, setValue, storage: isLocalStorageDefined() })
+  useFormPersist('order-now-form', {
+    setValue,
+    storage: isLocalStorageDefined(),
+    watch
+  })
 
-  return { register, handleSubmit, control, reset, errors, isValid }
+  return { control, errors, handleSubmit, isValid, register, reset }
 }

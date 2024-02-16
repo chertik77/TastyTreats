@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "./src",
     "target": "es5",
+    "verbatimModuleSyntax": true,
     "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "skipLibCheck": true,
@@ -16,13 +17,6 @@
     "incremental": true,
     "plugins": [{ "name": "next" }]
   },
-  "include": [
-    "next-env.d.ts",
-    "**/*.ts",
-    "**/*.tsx",
-    ".next/types/**/*.ts",
-    "src/components/ui/Field.jsx",
-    "src/components/ui/Field.jsx"
-  ],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
   "exclude": ["node_modules"]
 }

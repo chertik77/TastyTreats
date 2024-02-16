@@ -1,4 +1,5 @@
 import { getCategories } from 'api/methods/getCategories'
+
 import { CategoriesList } from './CategoriesList'
 
 export const Categories = async () => {

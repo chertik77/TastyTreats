@@ -1,9 +1,10 @@
 import { getAreas } from 'api/methods/getAreas'
-import { getRecipes } from 'api/methods/getRecipes'
-import { AreaSelect } from './AreaSelect'
-import { SearchFilter } from './SearchFilter'
 import { getIngredients } from 'api/methods/getIngredients'
+import { getRecipes } from 'api/methods/getRecipes'
+
+import { AreaSelect } from './AreaSelect'
 import { IngredientSelect } from './IngredientSelect'
+import { SearchFilter } from './SearchFilter'
 
 export const Filters = async () => {
   const areas = await getAreas()

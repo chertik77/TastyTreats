@@ -1,20 +1,26 @@
+import type { Metadata } from 'next'
+import type { PropsWithChildren } from 'react'
+
 import { Container } from 'components/Container'
 import { Header } from 'components/layout/Header'
-import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import 'primeicons/primeicons.css'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
-import type { PropsWithChildren } from 'react'
 import { Toaster } from 'sonner'
+
 import './globals.css'
 import { Providers } from './providers'
 
-const inter = Inter({ subsets: ['latin'], display: 'swap', weight: ['400', '500', '600'] })
+const inter = Inter({
+  display: 'swap',
+  subsets: ['latin'],
+  weight: ['400', '500', '600']
+})
 
 export const metadata: Metadata = {
-  title: 'TastyTreats',
   description:
-    'Welcome to TastyTreats, your go-to online culinary haven! Discover a world of delicious recipes.'
+    'Welcome to TastyTreats, your go-to online culinary haven! Discover a world of delicious recipes.',
+  title: 'TastyTreats'
 }
 
 const RootLayout = ({ children }: PropsWithChildren) => (

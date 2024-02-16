@@ -1,10 +1,10 @@
 import type { ButtonHTMLAttributes } from 'react'
 
 type Button = ButtonHTMLAttributes<HTMLButtonElement> & {
-  type?: 'submit' | 'button'
+  type?: 'button' | 'submit'
 }
 
-export const Button = ({ type = 'button', children, ...options }: Button) => (
+export const Button = ({ children, type = 'button', ...options }: Button) => (
   <button type={type} {...options}>
     {children}
   </button>

@@ -6,4 +6,5 @@ export type Ingredient = {
   name: string
 }
 
-export const getIngredients = () => alovaInstance.Get<Ingredient[]>(API_ENDPOINTS.ingredients)
+export const getIngredients = () =>
+  alovaInstance.Get<Ingredient[]>(API_ENDPOINTS.ingredients)

@@ -8,10 +8,12 @@ export const HeroOrderNowModalBtn = () => {
 
   return (
     <>
-      <button className='btn-order' type='button' onClick={toggleModal}>
+      <button className='btn-order' onClick={toggleModal} type='button'>
         Order Now
       </button>
-      {isModalOpen && <OrderNowModal isModalOpen={isModalOpen} toggleModal={toggleModal} />}
+      {isModalOpen && (
+        <OrderNowModal isModalOpen={isModalOpen} toggleModal={toggleModal} />
+      )}
     </>
   )
 }

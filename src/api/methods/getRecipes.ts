@@ -4,20 +4,20 @@ import { API_ENDPOINTS } from 'config/api-endpoints'
 type Recipe = {
   results: {
     _id: string
-    title: string
     description: string
     preview: string
-    rating: number & { min: 1; max: 5 }
+    rating: number & { max: 5; min: 1 }
+    title: string
   }[]
 }
 
 type Params = {
-  limit?: number
-  time?: number
-  category?: string
   area?: string
+  category?: string
   ingredient?: string
+  limit?: number
   page?: number
+  time?: number
 }
 
 export const getRecipes = (params: Params) =>
