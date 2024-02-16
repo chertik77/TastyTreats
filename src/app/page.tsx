@@ -1,4 +1,4 @@
-import type { SearchParams } from 'nuqs/parsers'
+import type { SearchParams } from 'nuqs/server'
 
 import { Hero } from 'components/blocks/Hero'
 import { Categories } from 'components/blocks/categories/Categories'

@@ -7,7 +7,6 @@ type RecipesListProps = {
 }
 
 export const RecipesList = ({ filterQuery, recipes }: RecipesListProps) => {
-  console.log(filterQuery)
   return (
     <>
       <ul className='flex flex-col gap-6 tablet:flex-row tablet:flex-wrap tablet:gap-4'>
@@ -27,7 +26,7 @@ export const RecipesList = ({ filterQuery, recipes }: RecipesListProps) => {
                     <i className='pi pi-heart text-[22px] text-lighter opacity-50 dark:text-light'></i>
                   </button>
                   <div>
-                    <h3 className='mb-2 text-fs-14-lh-128-fw-600 text-light'>
+                    <h3 className='mb-2 text-fs-14-lh-128-fw-600 text-red-500'>
                       {title}
                     </h3>
                     <p className='line-clamp-2 text-fs-12-lh-133-fw-400 text-light'>
