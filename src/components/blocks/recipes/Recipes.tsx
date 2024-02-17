@@ -1,6 +1,6 @@
-import { getRecipes } from 'api/methods/getRecipes'
 import { searchParamsCache } from 'utils/helpers/searchParamsCache'
 
+import { RECIPE_SERVICE } from 'services/recipes.service'
 import { RecipesList } from './RecipesList'
 
 export const Recipes = async () => {
@@ -8,7 +8,12 @@ export const Recipes = async () => {
   const area = searchParamsCache.get('area')
   const ingredient = searchParamsCache.get('ingredient')
   const query = searchParamsCache.get('query')
-  const recipes = await getRecipes({ area, category, ingredient, limit: 9 })
+  const recipes = await RECIPE_SERVICE.getRecipes({
+    area,
+    category,
+    ingredient,
+    limit: 9
+  })
 
   return (
     <>

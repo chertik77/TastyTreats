@@ -1,15 +1,12 @@
-import { getAreas } from 'api/methods/getAreas'
-import { getIngredients } from 'api/methods/getIngredients'
-import { getRecipes } from 'api/methods/getRecipes'
-
+import { RECIPE_SERVICE } from 'services/recipes.service'
 import { AreaSelect } from './AreaSelect'
 import { IngredientSelect } from './IngredientSelect'
 import { SearchFilter } from './SearchFilter'
 
 export const Filters = async () => {
-  const areas = await getAreas()
-  const ingredients = await getIngredients()
-  const recipesTitles = await getRecipes({ limit: 500 })
+  const areas = await RECIPE_SERVICE.getAreas()
+  const ingredients = await RECIPE_SERVICE.getIngredients()
+  const recipesTitles = await RECIPE_SERVICE.getRecipes({ limit: 500 })
 
   return (
     <>

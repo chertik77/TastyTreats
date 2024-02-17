@@ -1,22 +1,18 @@
 'use client'
 
-import type { Ingredient } from 'api/methods/getIngredients'
-
 import { DropdownIcon } from 'components/ui/DropdownIcon'
 import { useQueryState } from 'nuqs'
 import { Dropdown } from 'primereact/dropdown'
+import type { Ingredients } from 'types/recipes.types'
 
 export const IngredientSelect = ({
   ingredients
 }: {
-  ingredients: Ingredient[]
+  ingredients: Ingredients
 }) => {
   const [ingredientParam, setIngredientParam] = useQueryState('ingredient', {
     shallow: false
   })
-  console.log(
-    ingredients?.find(ingredient => ingredient._id === ingredientParam)
-  )
   return (
     <label className='mb-2 text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
       Area

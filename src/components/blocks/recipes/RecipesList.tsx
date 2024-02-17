@@ -1,9 +1,9 @@
-import type { Recipe } from 'api/methods-types'
 import { Rating } from 'components/ui/Rating'
+import type { Recipes } from 'types/recipes.types'
 
 type RecipesListProps = {
   filterQuery: string
-  recipes: Recipe
+  recipes: Recipes
 }
 
 export const RecipesList = ({ filterQuery, recipes }: RecipesListProps) => {

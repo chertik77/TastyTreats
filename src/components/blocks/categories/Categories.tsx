@@ -1,9 +1,8 @@
-import { getCategories } from 'api/methods/getCategories'
-
+import { RECIPE_SERVICE } from 'services/recipes.service'
 import { CategoriesList } from './CategoriesList'
 
 export const Categories = async () => {
-  const categories = await getCategories()
+  const categories = await RECIPE_SERVICE.getCategories()
 
   return (
     <section className='mb-10 tablet:mb-16'>

@@ -1,11 +1,10 @@
 'use client'
 
-import type { Area } from 'api/methods/getAreas'
-
 import { useQueryState } from 'nuqs'
 import { Dropdown } from 'primereact/dropdown'
+import type { Areas } from 'types/recipes.types'
 
-export const AreaSelect = ({ areas }: { areas: Area[] }) => {
+export const AreaSelect = ({ areas }: { areas: Areas }) => {
   const [area, setArea] = useQueryState('area', { shallow: false })
 
   return (

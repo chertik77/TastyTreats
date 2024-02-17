@@ -1,15 +1,14 @@
 'use client'
 
-import type { Recipe } from 'api/methods-types'
-
 import { useQueryState } from 'nuqs'
 import {
   AutoComplete,
   type AutoCompleteCompleteEvent
 } from 'primereact/autocomplete'
 import { useMemo, useState } from 'react'
+import type { Recipes } from 'types/recipes.types'
 
-export const SearchFilter = ({ recipesTitles }: { recipesTitles: Recipe }) => {
+export const SearchFilter = ({ recipesTitles }: { recipesTitles: Recipes }) => {
   const [suggestions, setSuggestions] = useState<string[]>([])
   const [query, setQuery] = useQueryState('query', { shallow: false })
 

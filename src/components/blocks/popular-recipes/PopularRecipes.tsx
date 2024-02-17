@@ -1,9 +1,8 @@
-import { getPopularRecipes } from 'api/methods/getPopularRecipes'
-
+import { RECIPE_SERVICE } from 'services/recipes.service'
 import { PopularRecipesList } from './PopularRecipesList'
 
 export const PopularRecipes = async () => {
-  const popularRecipes = await getPopularRecipes()
+  const popularRecipes = await RECIPE_SERVICE.getPopularRecipes()
 
   return (
     <section className='mb-10 desktop:w-[235px] tablet:mb-0 tablet:w-[176px]'>

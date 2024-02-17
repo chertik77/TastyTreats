@@ -1,10 +1,9 @@
 'use client'
 
-import type { Category } from 'api/methods/getCategories'
-
 import { useQueryState } from 'nuqs'
+import type { Categories } from 'types/recipes.types'
 
-export const CategoriesList = ({ categories }: { categories: Category[] }) => {
+export const CategoriesList = ({ categories }: { categories: Categories }) => {
   const [category, setCategory] = useQueryState('category', { shallow: false })
 
   return (
