@@ -9,7 +9,7 @@ export const CategoriesList = ({ categories }: { categories: Categories }) => {
   return (
     <>
       <button
-        className='btn-categories mb-[38px] desktop:mb-[42px] tablet:mb-[30px]'
+        className='btn-categories mb-[38px] text-red-400 desktop:mb-[42px] tablet:mb-[30px]'
         onClick={() => setCategory(null)}
         type='reset'>
         All categories

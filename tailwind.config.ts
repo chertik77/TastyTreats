@@ -1,6 +1,7 @@
 import plugin from 'tailwindcss/plugin'
+import type { Config } from 'tailwindcss/types/config'
 
-const config = {
+const config: Config = {
   content: [
     './index.html',
     './src/**/*.{ts,tsx}',
