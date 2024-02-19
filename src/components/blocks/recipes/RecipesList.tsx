@@ -24,7 +24,7 @@ export const RecipesList = ({ filterQuery, recipes }: RecipesListProps) => {
                   title.toLowerCase().includes(filterQuery.toLowerCase())
                 )
                 .map(({ _id, description, preview, rating, title }) => (
-                  <li
+                  <motion.li
                     className='relative size-[335px] rounded-lg px-4 pb-4 pt-[214px] desktop:h-[287px]
                       desktop:w-[250px] desktop:pt-[163px] tablet:h-[264px] tablet:w-[240px]
                       tablet:pt-[143px]'
@@ -54,7 +54,7 @@ export const RecipesList = ({ filterQuery, recipes }: RecipesListProps) => {
                         See recipe
                       </button>
                     </div>
-                  </li>
+                  </motion.li>
                 ))
             : recipes.results.map(
                 ({ _id, description, preview, rating, title }) => (
