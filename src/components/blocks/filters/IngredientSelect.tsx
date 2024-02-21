@@ -1,9 +1,9 @@
 'use client'
 
-import { DropdownIcon } from 'components/ui/DropdownIcon'
+import { DropdownIcon } from '@/components/ui/DropdownIcon'
+import type { Ingredients } from '@/types/recipes.types'
 import { useQueryState } from 'nuqs'
 import { Dropdown } from 'primereact/dropdown'
-import type { Ingredients } from 'types/recipes.types'
 
 export const IngredientSelect = ({
   ingredients

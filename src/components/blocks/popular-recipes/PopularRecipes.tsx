@@ -1,5 +1,5 @@
-import { RECIPE_SERVICE } from 'services/recipes.service'
 import { PopularRecipesList } from './PopularRecipesList'
+import { RECIPE_SERVICE } from '@/services/recipes.service'
 
 export const PopularRecipes = async () => {
   const popularRecipes = await RECIPE_SERVICE.getPopularRecipes()

@@ -1,6 +1,5 @@
-import { searchParamsCache } from 'utils/helpers/searchParamsCache'
-
 import { RecipesList } from './RecipesList'
+import { searchParamsCache } from '@/utils/helpers/searchParamsCache'
 
 export const Recipes = async () => {
   const category = searchParamsCache.get('category')

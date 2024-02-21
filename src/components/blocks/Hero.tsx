@@ -1,4 +1,5 @@
 import { HeroInfo } from './HeroInfo'
+
 // import { HeroSwiper } from './HeroSwiper'
 
 export const Hero = async () => {

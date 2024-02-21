@@ -1,7 +1,7 @@
 'use client'
 
+import type { PopularRecipes } from '@/types/recipes.types'
 import Image from 'next/image'
-import type { PopularRecipes } from 'types/recipes.types'
 
 export const PopularRecipesList = ({
   popularRecipes

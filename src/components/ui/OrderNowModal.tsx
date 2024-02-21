@@ -1,12 +1,12 @@
-import { useRequest } from 'alova'
-import { useOrderForm } from 'hooks/useOrderForm'
-import { RECIPE_SERVICE } from 'services/recipes.service'
-import { promiseToast } from 'utils/helpers/promiseToast'
-import type { Data } from 'utils/schema'
 import { Button } from './Button'
 import { Field } from './Field'
 import { Modal } from './Modal'
 import { PhoneField } from './PhoneField'
+import { useOrderForm } from '@/hooks/useOrderForm'
+import { RECIPE_SERVICE } from '@/services/recipes.service'
+import { promiseToast } from '@/utils/helpers/promiseToast'
+import type { Data } from '@/utils/schema'
+import { useRequest } from 'alova'
 
 type OrderNowModalProps = {
   isModalOpen: boolean

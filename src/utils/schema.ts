@@ -1,15 +1,14 @@
+import { isPhoneValid } from './helpers/isPhoneValid'
 import {
+  type Input,
   custom,
   email,
   minLength,
   object,
   optional,
   string,
-  toTrimmed,
-  type Input
+  toTrimmed
 } from 'valibot'
-
-import { isPhoneValid } from './helpers/isPhoneValid'
 
 export const orderSchema = object({
   comment: optional(string([toTrimmed()])),

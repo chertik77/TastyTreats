@@ -1,7 +1,7 @@
 'use client'
 
-import { OrderNowModal } from 'components/ui/OrderNowModal'
-import { useModal } from 'hooks/useModal'
+import { OrderNowModal } from '@/components/ui/OrderNowModal'
+import { useModal } from '@/hooks/useModal'
 
 export const HeroOrderNowModalBtn = () => {
   const { isModalOpen, toggleModal } = useModal()

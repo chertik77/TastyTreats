@@ -1,9 +1,8 @@
-import Link from 'next/link'
-
 import { HeaderBurgerMenu } from './HeaderBurgerMenu'
 import { HeaderNav } from './HeaderNav'
 import { HeaderOrderNowModalBtn } from './HeaderOrderNowModalBtn'
 import { HeaderThemeSwitcher } from './HeaderThemeSwitcher'
+import Link from 'next/link'
 
 export const Header = () => (
   <header className='flex items-center justify-between pt-5 desktop:pt-10 tablet:pt-[30px]'>

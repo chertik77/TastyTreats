@@ -1,5 +1,5 @@
-import { alovaInstance } from 'api'
-import { API_ENDPOINTS } from 'config/api-endpoints.config'
+import { alovaInstance } from '@/api'
+import { API_ENDPOINTS } from '@/config/api-endpoints.config'
 import type {
   Areas,
   Categories,
@@ -8,8 +8,8 @@ import type {
   PopularRecipes,
   Recipe,
   Recipes
-} from 'types/recipes.types'
-import type { Data } from 'utils/schema'
+} from '@/types/recipes.types'
+import type { Data } from '@/utils/schema'
 
 class SERVICE {
   getRecipes(options: Options) {

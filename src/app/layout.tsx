@@ -1,15 +1,13 @@
+import './globals.css'
+import { Providers } from './providers'
+import { Container } from '@/components/Container'
+import { Header } from '@/components/layout/Header'
 import type { Metadata } from 'next'
-import type { PropsWithChildren } from 'react'
-
-import { Container } from 'components/Container'
-import { Header } from 'components/layout/Header'
 import { Inter } from 'next/font/google'
 import 'primeicons/primeicons.css'
 import 'primereact/resources/themes/lara-light-cyan/theme.css'
+import type { PropsWithChildren } from 'react'
 import { Toaster } from 'sonner'
-
-import './globals.css'
-import { Providers } from './providers'
 
 const inter = Inter({
   display: 'swap',

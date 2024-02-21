@@ -1,9 +1,9 @@
 'use client'
 
-import { Rating } from 'components/ui/Rating'
-import { useRecipesPagination } from 'hooks/useRecipesPagination'
+import { Rating } from '@/components/ui/Rating'
+import { useRecipesPagination } from '@/hooks/useRecipesPagination'
+import type { RecipesStatesProps } from '@/types/recipes.types'
 import { Paginator } from 'primereact/paginator'
-import type { RecipesStatesProps } from 'types/recipes.types'
 
 export const RecipesList = ({ states }: RecipesStatesProps) => {
   const { data, setPage, total, page } = useRecipesPagination(states)
