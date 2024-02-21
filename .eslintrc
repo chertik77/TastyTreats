@@ -19,6 +19,14 @@
   "plugins": ["@typescript-eslint", "react"],
   "rules": {
     "linebreak-style": ["error", "unix"],
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
     "quotes": ["error", "single"],
     "semi": ["error", "never"],
     "tailwindcss/no-custom-classname": [
