@@ -8,6 +8,7 @@
     "start": "next start",
     "lint": "eslint . -f mo && tsc --noemit",
     "lint:fix": "eslint . --fix",
+    "format:check": "prettier --check .",
     "prepare": "husky install"
   },
   "dependencies": {
