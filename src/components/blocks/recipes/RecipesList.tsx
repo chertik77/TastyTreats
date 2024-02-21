@@ -2,11 +2,11 @@
 
 import { Rating } from 'components/ui/Rating'
 import { useRecipesPagination } from 'hooks/useRecipesPagination'
-import ReactPaginate from 'react-paginate'
+import { Paginator } from 'primereact/paginator'
 import type { RecipesStatesProps } from 'types/recipes.types'
 
 export const RecipesList = ({ states }: RecipesStatesProps) => {
-  const { data, pageCount, setPage } = useRecipesPagination(states)
+  const { data, setPage, total, page } = useRecipesPagination(states)
 
   return (
     <>
@@ -45,12 +45,13 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
           </li>
         ))}
       </ul>
-      <ReactPaginate
-        breakLabel='...'
-        onPageChange={e => setPage(e.selected + 1)}
-        pageRangeDisplayed={3}
-        pageCount={pageCount as number}
-        renderOnZeroPageCount={null}
+      <Paginator
+        first={total === 0 ? 0 : (page - 1) * 9}
+        rows={9}
+        alwaysShow={false}
+        totalRecords={total}
+        pageLinkSize={3}
+        onPageChange={e => setPage(e.page + 1)}
       />
     </>
   )

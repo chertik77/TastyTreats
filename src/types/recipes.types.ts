@@ -22,6 +22,7 @@ export type PopularRecipes = {
 
 export type Recipes = {
   totalPages: number
+  perPage: number
   results: {
     _id: string
     description: string
