@@ -21,6 +21,7 @@ export type PopularRecipes = {
 }[]
 
 export type Recipes = {
+  totalPages: number
   results: {
     _id: string
     description: string
@@ -52,4 +53,12 @@ export type Options = {
   limit?: number
   page?: number
   time?: number
+}
+
+export type RecipesStatesProps = {
+  states: {
+    category: string
+    area: string
+    ingredient: string
+  }
 }

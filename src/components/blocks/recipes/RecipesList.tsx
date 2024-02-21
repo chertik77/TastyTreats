@@ -1,40 +1,13 @@
 'use client'
 
-import { usePagination } from '@alova/scene-react'
-
 import { Rating } from 'components/ui/Rating'
+import { useRecipesPagination } from 'hooks/useRecipesPagination'
 import { Paginator } from 'primereact/paginator'
-import { RECIPE_SERVICE } from 'services/recipes.service'
+import type { RecipesStatesProps } from 'types/recipes.types'
 
-type RecipesListProps = {
-  states: {
-    category: string
-    area: string
-    ingredient: string
-  }
-}
-export const RecipesList = ({
-  states: { category, area, ingredient }
-}: RecipesListProps) => {
-  const {
-    data,
-    page: [_, setPage]
-  } = usePagination(
-    (page, limit) =>
-      RECIPE_SERVICE.getRecipes({
-        page,
-        category: category,
-        area,
-        ingredient,
-        limit
-      }),
-    {
-      total: r => r.results.length,
-      data: r => r.results,
-      watchingStates: [category, area, ingredient],
-      initialPageSize: 9
-    }
-  )
+export const RecipesList = ({ states }: RecipesStatesProps) => {
+  const { data, pageCount, total, setPage, isLastPage } =
+    useRecipesPagination(states)
 
   return (
     <>
@@ -74,8 +47,10 @@ export const RecipesList = ({
         ))}
       </ul>
       <Paginator
-        rows={10}
-        totalRecords={120}
+        // first={page}
+        rows={pageCount}
+        alwaysShow={!isLastPage}
+        totalRecords={total}
         onPageChange={() => setPage(v => v + 1)}
       />
     </>
