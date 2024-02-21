@@ -12,17 +12,25 @@ export const useRecipesPagination = ({
     data,
     pageCount,
     isLastPage,
-    page: [_, setPage]
+    page: [page, setPage]
   } = usePagination(
     (page, limit) =>
-      RECIPE_SERVICE.getRecipes({ page, category, area, ingredient, limit }),
+      RECIPE_SERVICE.getRecipes({
+        page,
+        ...(category ? { category } : {}),
+        ...(ingredient ? { ingredient } : {}),
+        ...(area ? { area } : {}),
+        limit
+      }),
     {
-      total: r => r.totalPages,
+      total: r => r.totalPages * 9,
       data: r => r.results,
       watchingStates: [category, area, ingredient],
-      initialPageSize: 9
+      initialPageSize: 9,
+      preloadNextPage: false,
+      preloadPreviousPage: false
     }
   )
 
-  return { total, data, pageCount, isLastPage, setPage }
+  return { total, data, pageCount, isLastPage, setPage, page }
 }
