@@ -13,7 +13,7 @@ export default function Home({ searchParams }: { searchParams: SearchParams }) {
   return (
     <>
       <Hero />
-      <div className='gap-8 desktop:gap-16 tablet:flex'>
+      <div className='gap-8 tablet:flex desktop:gap-16'>
         <div>
           <Categories />
           <PopularRecipes />

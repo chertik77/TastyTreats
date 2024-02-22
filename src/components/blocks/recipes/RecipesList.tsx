@@ -18,13 +18,13 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
 
   return (
     <>
-      <ul className='mb-10 flex flex-col gap-6 tablet:mb-16 tablet:flex-row tablet:flex-wrap tablet:gap-4'>
+      <ul className='mb-10 grid gap-6 tablet:mb-16 tablet:grid-cols-2 tablet:gap-4 desktop:grid-cols-3'>
         {loading && <div>Loading...</div>}
         {data?.map(({ _id, description, preview, rating, title }) => (
           <li
-            className='relative size-[335px] rounded-lg px-4 pb-4 pt-[214px] desktop:h-[287px]
-                      desktop:w-[250px] desktop:pt-[163px] tablet:h-[264px]
-                      tablet:w-[240px] tablet:pt-[143px]'
+            className='relative size-[335px] rounded-lg px-4 pb-4 pt-[214px] tablet:h-[264px]
+                      tablet:w-[240px] tablet:pt-[143px] desktop:h-[287px]
+                      desktop:w-[250px] desktop:pt-[163px]'
             key={_id}
             style={{
               background: `linear-gradient(1deg, rgba(5, 5, 5, 0.60) 4.82%, rgba(5, 5, 5, 0.00) 108.72%), url(${preview}), lightgray -91.79px -9.338px / 138.4% 120.558% no-repeat`
@@ -78,10 +78,7 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
           pageButton: props => ({
             className: classNames(
               'h-10 min-w-10 border border-dark/50 text-dark dark:text-light dark:border-white/30 tablet:h-11 tablet:min-w-11',
-              {
-                'bg-brand border-brand dark:border-brand':
-                  props?.context?.active
-              }
+              { 'bg-brand !border-brand': props?.context?.active }
             )
           }),
           pages: { className: 'space-x-[10px]' },

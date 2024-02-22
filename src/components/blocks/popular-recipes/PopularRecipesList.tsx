@@ -13,12 +13,12 @@ export const PopularRecipesList = ({
     <ul>
       {popularRecipes?.map(({ _id, description, preview, title }) => (
         <li
-          className='mb-6 last-of-type:mb-0 max-tablet:even:hidden tablet:mb-4'
+          className='mb-6 last-of-type:mb-0 tablet:mb-4 max-tablet:even:hidden'
           key={_id}>
-          <button className='flex gap-4 desktop:gap-4 tablet:gap-2'>
+          <button className='flex gap-4 tablet:gap-2 desktop:gap-4'>
             <Image
               alt={title}
-              className='rounded-lg desktop:size-16 tablet:size-12'
+              className='rounded-lg tablet:size-12 desktop:size-16'
               height={64}
               src={preview}
               width={64}

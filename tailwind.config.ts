@@ -207,10 +207,10 @@ const config: Config = {
       }
     },
     screens: {
-      desktop: '1280px',
-      'max-tablet': { max: '768px' },
       mobile: '375px',
-      tablet: '768px'
+      tablet: '768px',
+      'max-tablet': { max: '768px' },
+      desktop: '1280px'
     }
   }
 }

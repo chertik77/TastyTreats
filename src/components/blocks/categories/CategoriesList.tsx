@@ -13,12 +13,12 @@ export const CategoriesList = ({ categories }: { categories: Categories }) => {
   return (
     <>
       <button
-        className='btn-categories mb-[38px] text-dark-50 desktop:mb-[42px] tablet:mb-[30px]'
+        className='btn-categories mb-[38px] text-dark-50 tablet:mb-[30px] desktop:mb-[42px]'
         onClick={clearSearchParams}
         type='reset'>
         All categories
       </button>
-      <ul className='h-[198px] overflow-y-scroll desktop:w-[235px] tablet:h-[416px] tablet:w-[176px]'>
+      <ul className='h-[198px] overflow-y-scroll tablet:h-[416px] tablet:w-[176px] desktop:w-[235px]'>
         {categories?.map(({ _id, name }) => (
           <li
             className='mb-[18px] cursor-pointer text-fs-14-lh-normal-fw-500 text-dark-30
