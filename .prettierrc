@@ -9,10 +9,28 @@
   "bracketSameLine": true,
   "arrowParens": "avoid",
   "proseWrap": "preserve",
-  "importOrderSeparation": true,
-  "importOrderSortSpecifiers": true,
+  "singleAttributePerLine": true,
+  "importOrder": [
+    "<TYPES>",
+    "<TYPES>^[.]",
+    "",
+    "<THIRD_PARTY_MODULES>",
+    "",
+    "^@/components(/.*)$",
+    "",
+    "^@/hooks(/.*)$",
+    "",
+    "^(@/api|@/services|@/config)(/.*)$",
+    "",
+    "^@/utils(/.*)$",
+    "",
+    "^[.]",
+    "",
+    "^(?!.*[.]css$)[./].*$",
+    ".css$"
+  ],
   "plugins": [
-    "@trivago/prettier-plugin-sort-imports",
+    "@ianvs/prettier-plugin-sort-imports",
     "prettier-plugin-tailwindcss"
   ]
 }

@@ -1,8 +1,11 @@
-import { isLocalStorageDefined } from '@/utils/helpers/isLocalStorageDefined'
-import { type Data, orderSchema } from '@/utils/schema'
+import type { Data } from '@/utils/schema'
+
 import { valibotResolver } from '@hookform/resolvers/valibot'
 import { useForm } from 'react-hook-form'
 import useFormPersist from 'react-hook-form-persist'
+
+import { isLocalStorageDefined } from '@/utils/helpers/isLocalStorageDefined'
+import { orderSchema } from '@/utils/schema'
 
 export const useOrderForm = () => {
   const {

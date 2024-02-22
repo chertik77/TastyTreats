@@ -1,4 +1,6 @@
-import { type ExternalToast, toast } from 'sonner'
+import type { ExternalToast } from 'sonner'
+
+import { toast } from 'sonner'
 
 type PromiseData<ToastData = unknown> = ExternalToast & {
   error: ((error: Error) => string) | string

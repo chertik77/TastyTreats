@@ -5,7 +5,9 @@ type Button = ButtonHTMLAttributes<HTMLButtonElement> & {
 }
 
 export const Button = ({ children, type = 'button', ...options }: Button) => (
-  <button type={type} {...options}>
+  <button
+    type={type}
+    {...options}>
     {children}
   </button>
 )

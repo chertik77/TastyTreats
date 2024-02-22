@@ -1,7 +1,10 @@
 import type { Data } from '@/utils/schema'
+import type { Control } from 'react-hook-form'
+
 import { ErrorMessage } from '@hookform/error-message'
-import { type Control, Controller } from 'react-hook-form'
+import { Controller } from 'react-hook-form'
 import { PhoneInput } from 'react-international-phone'
+
 import 'react-international-phone/style.css'
 
 export const PhoneField = ({ control }: { control: Control<Data> }) => (

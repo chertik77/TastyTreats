@@ -1,5 +1,6 @@
-import plugin from 'tailwindcss/plugin'
 import type { Config } from 'tailwindcss/types/config'
+
+import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
   content: [

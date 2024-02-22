@@ -1,9 +1,11 @@
 'use client'
 
+import { Modal } from '@/components/ui/Modal'
+
+import { useModal } from '@/hooks/useModal'
+
 import { HeaderNav } from './HeaderNav'
 import { HeaderThemeSwitcher } from './HeaderThemeSwitcher'
-import { Modal } from '@/components/ui/Modal'
-import { useModal } from '@/hooks/useModal'
 
 export const HeaderBurgerMenu = () => {
   const { isModalOpen, toggleModal } = useModal()

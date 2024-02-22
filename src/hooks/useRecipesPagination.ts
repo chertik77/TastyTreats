@@ -1,7 +1,8 @@
-import { RECIPE_SERVICE } from '@/services/recipes.service'
 import type { RecipesStatesProps } from '@/types/recipes.types'
-// eslint-disable-next-line import/named
+
 import { usePagination } from '@alova/scene-react'
+
+import { RECIPE_SERVICE } from '@/services/recipes.service'
 
 export const useRecipesPagination = ({
   category,

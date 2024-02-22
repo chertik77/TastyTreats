@@ -1,9 +1,12 @@
 'use client'
 
-import { Rating } from '@/components/ui/Rating'
-import { useRecipesPagination } from '@/hooks/useRecipesPagination'
 import type { RecipesStatesProps } from '@/types/recipes.types'
+
 import { Paginator } from 'primereact/paginator'
+
+import { Rating } from '@/components/ui/Rating'
+
+import { useRecipesPagination } from '@/hooks/useRecipesPagination'
 
 export const RecipesList = ({ states }: RecipesStatesProps) => {
   const { data, setPage, total, page } = useRecipesPagination(states)
@@ -20,7 +23,9 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
             style={{
               background: `linear-gradient(1deg, rgba(5, 5, 5, 0.60) 4.82%, rgba(5, 5, 5, 0.00) 108.72%), url(${preview}), lightgray -91.79px -9.338px / 138.4% 120.558% no-repeat`
             }}>
-            <button className='absolute right-4 top-4' type='button'>
+            <button
+              className='absolute right-4 top-4'
+              type='button'>
               <i className='pi pi-heart text-[22px] text-lighter opacity-50 dark:text-light'></i>
             </button>
             <div>
@@ -38,7 +43,9 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
                 </p>
                 <Rating rating={rating} />
               </div>
-              <button className='btn-recipe' type='button'>
+              <button
+                className='btn-recipe'
+                type='button'>
                 See recipe
               </button>
             </div>

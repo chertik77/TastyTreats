@@ -1,4 +1,6 @@
-import { Dialog, type DialogProps } from 'primereact/dialog'
+import type { DialogProps } from 'primereact/dialog'
+
+import { Dialog } from 'primereact/dialog'
 
 export const Modal = ({ children, ...options }: DialogProps) => (
   <Dialog

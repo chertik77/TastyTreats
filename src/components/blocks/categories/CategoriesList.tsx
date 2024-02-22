@@ -1,6 +1,7 @@
 'use client'
 
 import type { Categories } from '@/types/recipes.types'
+
 import { useQueryState } from 'nuqs'
 
 export const CategoriesList = ({ categories }: { categories: Categories }) => {

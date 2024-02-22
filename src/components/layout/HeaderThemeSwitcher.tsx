@@ -1,7 +1,9 @@
 'use client'
 
+import type { InputSwitchProps } from 'primereact/inputswitch'
+
 import { useTheme } from 'next-themes'
-import { InputSwitch, type InputSwitchProps } from 'primereact/inputswitch'
+import { InputSwitch } from 'primereact/inputswitch'
 import { classNames } from 'primereact/utils'
 import { useEffect, useState } from 'react'
 

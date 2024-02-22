@@ -1,6 +1,8 @@
-import { ErrorMessage } from '@hookform/error-message'
-import { type ForwardedRef, type InputHTMLAttributes, forwardRef } from 'react'
+import type { ForwardedRef, InputHTMLAttributes } from 'react'
 import type { FieldErrors } from 'react-hook-form'
+
+import { ErrorMessage } from '@hookform/error-message'
+import { forwardRef } from 'react'
 
 type Field = InputHTMLAttributes<HTMLInputElement> & {
   errors?: FieldErrors
