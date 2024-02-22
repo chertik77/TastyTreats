@@ -7,7 +7,7 @@ import type {
   Recipe,
   Recipes
 } from '@/types/recipes.types'
-import type { Data } from '@/utils/schema'
+import type { OrderSchemaFields } from '@/utils/schema'
 
 import { alovaInstance } from '@/api'
 
@@ -40,7 +40,7 @@ class SERVICE {
     return alovaInstance.Get<Areas>(API_ENDPOINTS.AREAS)
   }
 
-  addOrder(data: Data) {
+  addOrder(data: OrderSchemaFields) {
     return alovaInstance.Post(API_ENDPOINTS.ADD_ORDER, data)
   }
 }

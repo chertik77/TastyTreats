@@ -1,4 +1,4 @@
-import type { Data } from '@/utils/schema'
+import type { OrderSchemaFields } from '@/utils/schema'
 import type { Control } from 'react-hook-form'
 
 import { ErrorMessage } from '@hookform/error-message'
@@ -7,7 +7,11 @@ import { PhoneInput } from 'react-international-phone'
 
 import 'react-international-phone/style.css'
 
-export const PhoneField = ({ control }: { control: Control<Data> }) => (
+export const PhoneField = ({
+  control
+}: {
+  control: Control<OrderSchemaFields>
+}) => (
   <Controller
     control={control}
     name='phone'
