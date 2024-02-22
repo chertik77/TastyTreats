@@ -12,6 +12,7 @@ import { useRecipesPagination } from '@/hooks/useRecipesPagination'
 export const RecipesList = ({ states }: RecipesStatesProps) => {
   const { data, setPage, total, page, pageSize } = useRecipesPagination(states)
 
+  console.log(pageSize)
   return (
     <>
       <ul className='flex flex-col gap-6 tablet:flex-row tablet:flex-wrap tablet:gap-4'>

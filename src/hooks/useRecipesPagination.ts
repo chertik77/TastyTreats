@@ -1,7 +1,9 @@
+'use client'
+
 import type { RecipesStatesProps } from '@/types/recipes.types'
 
 import { usePagination } from '@alova/scene-react'
-import { useMedia } from 'react-use-media'
+import { useMediaQuery } from 'react-responsive'
 
 import { RECIPE_SERVICE } from '@/services/recipes.service'
 
@@ -10,7 +12,8 @@ export const useRecipesPagination = ({
   area,
   ingredient
 }: RecipesStatesProps['states']) => {
-  const isTablet = useMedia({ maxWidth: 1080 })
+  const isTablet = useMediaQuery({ minWidth: 768 })
+  const isDesktop = useMediaQuery({ minWidth: 1080 })
 
   const {
     total,
@@ -24,7 +27,7 @@ export const useRecipesPagination = ({
       total: r => r.totalPages * r.perPage,
       data: r => r.results,
       watchingStates: [category, area, ingredient],
-      initialPageSize: isTablet ? 8 : 9
+      initialPageSize: isDesktop ? 9 : isTablet ? 8 : 6
     }
   )
 
