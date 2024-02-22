@@ -3,13 +3,14 @@
 import type { RecipesStatesProps } from '@/types/recipes.types'
 
 import { Paginator } from 'primereact/paginator'
+import { classNames } from 'primereact/utils'
 
 import { Rating } from '@/components/ui/Rating'
 
 import { useRecipesPagination } from '@/hooks/useRecipesPagination'
 
 export const RecipesList = ({ states }: RecipesStatesProps) => {
-  const { data, setPage, total, page } = useRecipesPagination(states)
+  const { data, setPage, total, page, pageSize } = useRecipesPagination(states)
 
   return (
     <>
@@ -53,12 +54,35 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
         ))}
       </ul>
       <Paginator
-        first={total === 0 ? 0 : (page - 1) * 9}
-        rows={9}
+        first={total === 0 ? 0 : (page - 1) * pageSize}
+        rows={pageSize}
         alwaysShow={false}
         totalRecords={total}
         pageLinkSize={3}
         onPageChange={e => setPage(e.page + 1)}
+        pt={{
+          root: { className: 'dark:bg-transparent' },
+          firstPageButton: {
+            className: 'bg-dark h-11 min-w-11 text-white/50 mr-2'
+          },
+          prevPageButton: {
+            className: 'bg-dark h-11 min-w-11 text-white/50 mr-6'
+          },
+          pageButton: props => ({
+            className: classNames(
+              'h-11 min-w-11 border border-dark/50 text-dark dark:text-light dark:border-white/30',
+              {
+                'bg-brand border-brand dark:border-brand':
+                  props?.context?.active
+              }
+            )
+          }),
+          pages: { className: 'space-x-[10px]' },
+          lastPageButton: {
+            className: 'bg-brand h-11 min-w-11 text-dark ml-2'
+          },
+          nextPageButton: { className: 'bg-brand h-11 min-w-11 text-dark ml-6' }
+        }}
       />
     </>
   )
