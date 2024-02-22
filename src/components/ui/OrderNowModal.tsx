@@ -62,6 +62,7 @@ export const OrderNowModal = ({
           </Button>
           <form onSubmit={handleSubmit(submit)}>
             <Field
+              autoFocus
               errors={errors}
               labelName='Name'
               {...register('name')}
