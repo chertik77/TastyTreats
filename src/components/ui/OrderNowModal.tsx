@@ -1,4 +1,4 @@
-import type { Data } from '@/utils/schema'
+import type { OrderSchemaFields } from '@/utils/schema'
 
 import { useRequest } from 'alova'
 
@@ -28,8 +28,8 @@ export const OrderNowModal = ({
   const { control, errors, handleSubmit, isValid, register, reset } =
     useOrderForm()
 
-  const submit = async (data: Data) => {
-    const filteredData: Data = {
+  const submit = async (data: OrderSchemaFields) => {
+    const filteredData = {
       email: data.email,
       name: data.name,
       phone: '+380000000000'

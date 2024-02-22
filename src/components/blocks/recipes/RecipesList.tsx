@@ -13,16 +13,18 @@ import { useRecipesPagination } from '@/hooks/useRecipesPagination'
 export const RecipesList = ({ states }: RecipesStatesProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 })
 
-  const { data, setPage, total, page, pageSize } = useRecipesPagination(states)
+  const { data, setPage, total, page, pageSize, loading } =
+    useRecipesPagination(states)
 
   return (
     <>
       <ul className='mb-10 flex flex-col gap-6 tablet:mb-16 tablet:flex-row tablet:flex-wrap tablet:gap-4'>
+        {loading && <div>Loading...</div>}
         {data?.map(({ _id, description, preview, rating, title }) => (
           <li
             className='relative size-[335px] rounded-lg px-4 pb-4 pt-[214px] desktop:h-[287px]
-                      desktop:w-[250px] desktop:pt-[163px] tablet:h-[264px] tablet:w-[240px]
-                      tablet:pt-[143px]'
+                      desktop:w-[250px] desktop:pt-[163px] tablet:h-[264px]
+                      tablet:w-[240px] tablet:pt-[143px]'
             key={_id}
             style={{
               background: `linear-gradient(1deg, rgba(5, 5, 5, 0.60) 4.82%, rgba(5, 5, 5, 0.00) 108.72%), url(${preview}), lightgray -91.79px -9.338px / 138.4% 120.558% no-repeat`

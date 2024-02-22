@@ -18,6 +18,7 @@ export const useRecipesPagination = ({
   const {
     total,
     data,
+    loading,
     page: [page, setPage],
     pageSize: [pageSize]
   } = usePagination(
@@ -31,5 +32,5 @@ export const useRecipesPagination = ({
     }
   )
 
-  return { total, data, setPage, page, pageSize }
+  return { total, data, setPage, page, pageSize, loading }
 }

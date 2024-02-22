@@ -4,14 +4,17 @@ import type { Categories } from '@/types/recipes.types'
 
 import { useQueryState } from 'nuqs'
 
+import { useClearSearchParams } from '@/hooks/useClearSearchParams'
+
 export const CategoriesList = ({ categories }: { categories: Categories }) => {
+  const clearSearchParams = useClearSearchParams()
   const [category, setCategory] = useQueryState('category', { shallow: false })
 
   return (
     <>
       <button
-        className='btn-categories mb-[38px] text-red-400 desktop:mb-[42px] tablet:mb-[30px]'
-        onClick={() => setCategory(null)}
+        className='btn-categories mb-[38px] text-dark-50 desktop:mb-[42px] tablet:mb-[30px]'
+        onClick={clearSearchParams}
         type='reset'>
         All categories
       </button>

@@ -22,4 +22,4 @@ export const orderSchema = object({
   phone: string([custom(isPhoneValid, 'Please enter a valid phone number.')])
 })
 
-export type Data = Input<typeof orderSchema>
+export type OrderSchemaFields = Input<typeof orderSchema>
