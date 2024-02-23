@@ -7,7 +7,7 @@ import type {
   Recipe,
   Recipes
 } from '@/types/recipes.types'
-import type { OrderSchemaFields } from '@/utils/schema'
+import type { OrderSchemaFields } from '@/utils/order-schema'
 
 import { alovaInstance } from '@/api'
 

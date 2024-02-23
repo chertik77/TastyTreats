@@ -1,4 +1,4 @@
-import type { OrderSchemaFields } from '@/utils/schema'
+import type { OrderSchemaFields } from '@/utils/order-schema'
 
 import { useRequest } from 'alova'
 
@@ -6,12 +6,11 @@ import { useOrderForm } from '@/hooks/useOrderForm'
 
 import { RECIPE_SERVICE } from '@/services/recipes.service'
 
-import { promiseToast } from '@/utils/helpers/promiseToast'
+import { promiseToast } from '@/utils/functions/promise-toast'
 
-import { Button } from './Button'
-import { Field } from './Field'
-import { Modal } from './Modal'
-import { PhoneField } from './PhoneField'
+import { Field } from '../ui/Field'
+import { Modal } from '../ui/Modal'
+import { PhoneField } from '../ui/PhoneField'
 
 type OrderNowModalProps = {
   isModalOpen: boolean
@@ -55,11 +54,11 @@ export const OrderNowModal = ({
           <h2 className='mb-[28px] text-fs-18-lh-122-fw-600 uppercase text-dark dark:text-light'>
             Order now
           </h2>
-          <Button
+          <button
             className='absolute right-[14px] top-[14px] leading-[0] tablet:right-4 tablet:top-4'
             onClick={toggleModal}>
             <i className='pi pi-times text-[1.25rem] tablet:text-[1.5rem]'></i>
-          </Button>
+          </button>
           <form onSubmit={handleSubmit(submit)}>
             <Field
               autoFocus
@@ -80,12 +79,12 @@ export const OrderNowModal = ({
               {...register('comment')}
               isTextArea
             />
-            <Button
+            <button
               className='btn-send disabled:cursor-not-allowed disabled:opacity-50'
               disabled={!isValid}
               type='submit'>
               {loading ? 'Sending...' : 'Send'}
-            </Button>
+            </button>
           </form>
         </>
       }

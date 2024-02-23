@@ -2,6 +2,7 @@
 
 import type { Categories } from '@/types/recipes.types'
 
+import { cn } from '@/utils'
 import { useQueryState } from 'nuqs'
 
 import { useClearSearchParams } from '@/hooks/useClearSearchParams'
@@ -26,9 +27,10 @@ export const CategoriesList = ({ categories }: { categories: Categories }) => {
               tablet:text-fs-16-lh-125-fw-500'
             key={_id}>
             <button
-              className={`main-transition hover:text-brand ${
+              className={cn(
+                'main-transition hover:text-brand',
                 category === name && 'text-brand'
-              }`}
+              )}
               onClick={() => setCategory(name)}
               type='button'>
               {name}

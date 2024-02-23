@@ -1,4 +1,4 @@
-import { searchParamsCache } from '@/utils/helpers/searchParamsCache'
+import { searchParamsCache } from '@/utils/functions/searchParamsCache'
 
 import { RecipesList } from './RecipesList'
 

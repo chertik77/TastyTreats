@@ -1,4 +1,4 @@
-import type { OrderSchemaFields } from '@/utils/schema'
+import type { OrderSchemaFields } from '@/utils/order-schema'
 import type { Control } from 'react-hook-form'
 
 import { ErrorMessage } from '@hookform/error-message'

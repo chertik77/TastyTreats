@@ -1,19 +1,19 @@
 'use client'
 
-import { CartIcon } from '@/components/ui/CartIcon'
-import { OrderNowModal } from '@/components/ui/OrderNowModal'
+import { OrderNowModal } from '@/components/features/OrderNowModal'
 
 import { useModal } from '@/hooks/useModal'
 
-export const HeaderOrderNowModalBtn = () => {
+export const HeroOrderNowModalBtn = () => {
   const { isModalOpen, toggleModal } = useModal()
 
   return (
     <>
       <button
-        className='leading-[0]'
-        onClick={toggleModal}>
-        <CartIcon />
+        className='btn-order'
+        onClick={toggleModal}
+        type='button'>
+        Order Now
       </button>
       {isModalOpen && (
         <OrderNowModal

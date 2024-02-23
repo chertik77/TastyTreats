@@ -10,7 +10,7 @@ import {
   toTrimmed
 } from 'valibot'
 
-import { isPhoneValid } from './helpers/isPhoneValid'
+import { isPhoneValid } from './functions/isPhoneValid'
 
 export const orderSchema = object({
   comment: optional(string([toTrimmed()])),

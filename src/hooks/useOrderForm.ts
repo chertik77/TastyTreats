@@ -1,10 +1,10 @@
-import type { OrderSchemaFields } from '@/utils/schema'
+import type { OrderSchemaFields } from '@/utils/order-schema'
 
 import { valibotResolver } from '@hookform/resolvers/valibot'
 import { useForm } from 'react-hook-form'
 import useFormPersist from 'react-hook-form-persist'
 
-import { orderSchema } from '@/utils/schema'
+import { orderSchema } from '@/utils/order-schema'
 
 export const useOrderForm = () => {
   const {
