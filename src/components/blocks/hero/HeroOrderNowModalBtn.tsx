@@ -1,8 +1,8 @@
 'use client'
 
-import { useModal } from '@/hooks'
-
 import { OrderNowModal } from '@/components/features/OrderNowModal'
+
+import { useModal } from '@/hooks'
 
 export const HeroOrderNowModalBtn = () => {
   const { isModalOpen, toggleModal } = useModal()

@@ -1,10 +1,12 @@
 import type { OrderSchemaFields } from '@/utils/order-schema'
 
-import { useOrderForm } from '@/hooks'
-import { RECIPE_SERVICE } from '@/services'
 import { useRequest } from 'alova'
 
 import { Field, Modal, PhoneField } from '@/components/ui'
+
+import { useOrderForm } from '@/hooks'
+
+import { RECIPE_SERVICE } from '@/services'
 
 import { promiseToast } from '@/utils/functions/promise-toast'
 

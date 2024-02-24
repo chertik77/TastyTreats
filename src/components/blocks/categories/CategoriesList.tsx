@@ -2,9 +2,11 @@
 
 import type { Categories } from '@/types'
 
-import { useClearSearchParams } from '@/hooks'
-import { cn } from '@/utils'
 import { useQueryState } from 'nuqs'
+
+import { useClearSearchParams } from '@/hooks'
+
+import { cn } from '@/utils'
 
 export const CategoriesList = ({ categories }: { categories: Categories }) => {
   const clearSearchParams = useClearSearchParams()

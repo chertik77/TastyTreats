@@ -2,9 +2,10 @@
 
 import type { RecipesStatesProps } from '@/types'
 
-import { RECIPE_SERVICE } from '@/services'
 import { usePagination } from '@alova/scene-react'
 import { useMediaQuery } from 'react-responsive'
+
+import { RECIPE_SERVICE } from '@/services'
 
 export const useRecipesPagination = ({
   category,
