@@ -1,16 +1,12 @@
 import type { OrderSchemaFields } from '@/utils/order-schema'
 
+import { useOrderForm } from '@/hooks'
+import { RECIPE_SERVICE } from '@/services'
 import { useRequest } from 'alova'
 
-import { useOrderForm } from '@/hooks/useOrderForm'
-
-import { RECIPE_SERVICE } from '@/services/recipes.service'
+import { Field, Modal, PhoneField } from '@/components/ui'
 
 import { promiseToast } from '@/utils/functions/promise-toast'
-
-import { Field } from '../ui/Field'
-import { Modal } from '../ui/Modal'
-import { PhoneField } from '../ui/PhoneField'
 
 type OrderNowModalProps = {
   isModalOpen: boolean

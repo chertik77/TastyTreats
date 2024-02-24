@@ -6,12 +6,11 @@ import type {
   PopularRecipes,
   Recipe,
   Recipes
-} from '@/types/recipes.types'
+} from '@/types'
 import type { OrderSchemaFields } from '@/utils/order-schema'
 
 import { alovaInstance } from '@/api'
-
-import { API_ENDPOINTS } from '@/config/api-endpoints.config'
+import { API_ENDPOINTS } from '@/config'
 
 class SERVICE {
   getRecipes(options: Options) {

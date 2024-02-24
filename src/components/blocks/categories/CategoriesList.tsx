@@ -1,11 +1,10 @@
 'use client'
 
-import type { Categories } from '@/types/recipes.types'
+import type { Categories } from '@/types'
 
+import { useClearSearchParams } from '@/hooks'
 import { cn } from '@/utils'
 import { useQueryState } from 'nuqs'
-
-import { useClearSearchParams } from '@/hooks/useClearSearchParams'
 
 export const CategoriesList = ({ categories }: { categories: Categories }) => {
   const clearSearchParams = useClearSearchParams()

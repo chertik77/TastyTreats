@@ -1,4 +1,4 @@
-import { RECIPE_SERVICE } from '@/services/recipes.service'
+import { RECIPE_SERVICE } from '@/services'
 
 import { PopularRecipesList } from './PopularRecipesList'
 

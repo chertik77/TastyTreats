@@ -1,8 +1,8 @@
 'use client'
 
-import { Modal } from '@/components/ui/Modal'
+import { useModal } from '@/hooks'
 
-import { useModal } from '@/hooks/useModal'
+import { Modal } from '@/components/ui'
 
 import { HeaderNav } from './HeaderNav'
 import { HeaderThemeSwitcher } from './HeaderThemeSwitcher'

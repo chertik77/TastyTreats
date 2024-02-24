@@ -5,7 +5,7 @@ import { Inter } from 'next/font/google'
 import { Toaster } from 'sonner'
 
 import { Header } from '@/components/blocks/header/Header'
-import { Container } from '@/components/ui/Container'
+import { Container } from '@/components/ui'
 
 import { Providers } from './providers'
 

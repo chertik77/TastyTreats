@@ -1,11 +1,10 @@
 'use client'
 
-import type { RecipesStatesProps } from '@/types/recipes.types'
+import type { RecipesStatesProps } from '@/types'
 
+import { RECIPE_SERVICE } from '@/services'
 import { usePagination } from '@alova/scene-react'
 import { useMediaQuery } from 'react-responsive'
-
-import { RECIPE_SERVICE } from '@/services/recipes.service'
 
 export const useRecipesPagination = ({
   category,

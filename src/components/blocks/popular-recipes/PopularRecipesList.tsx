@@ -1,6 +1,6 @@
 'use client'
 
-import type { PopularRecipes } from '@/types/recipes.types'
+import type { PopularRecipes } from '@/types'
 
 import Image from 'next/image'
 

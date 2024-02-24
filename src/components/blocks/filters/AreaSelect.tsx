@@ -1,6 +1,6 @@
 'use client'
 
-import type { Areas } from '@/types/recipes.types'
+import type { Areas } from '@/types'
 
 import { useQueryState } from 'nuqs'
 import { Dropdown } from 'primereact/dropdown'

@@ -1,14 +1,13 @@
 'use client'
 
-import type { RecipesStatesProps } from '@/types/recipes.types'
+import type { RecipesStatesProps } from '@/types'
 
+import { useRecipesPagination } from '@/hooks'
 import { Paginator } from 'primereact/paginator'
 import { classNames } from 'primereact/utils'
 import { useMediaQuery } from 'react-responsive'
 
-import { Rating } from '@/components/ui/Rating'
-
-import { useRecipesPagination } from '@/hooks/useRecipesPagination'
+import { Rating } from '@/components/ui'
 
 export const RecipesList = ({ states }: RecipesStatesProps) => {
   const isMobile = useMediaQuery({ maxWidth: 768 })
