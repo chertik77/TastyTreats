@@ -1,10 +1,12 @@
 import type { SearchParams } from 'nuqs/server'
 
-import { Categories } from '@/components/blocks/categories/Categories'
-import { Filters } from '@/components/blocks/filters/Filters'
-import { Hero } from '@/components/blocks/hero/Hero'
-import { PopularRecipes } from '@/components/blocks/popular-recipes/PopularRecipes'
-import { Recipes } from '@/components/blocks/recipes/Recipes'
+import {
+  Categories,
+  Filters,
+  Hero,
+  PopularRecipes,
+  Recipes
+} from '@/components/blocks'
 
 import { searchParamsCache } from '@/utils/functions/searchParamsCache'
 

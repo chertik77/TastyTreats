@@ -1,0 +1,6 @@
+export * from './categories/Categories'
+export * from './filters/Filters'
+export * from './header/Header'
+export * from './hero/Hero'
+export * from './popular-recipes/PopularRecipes'
+export * from './recipes/Recipes'

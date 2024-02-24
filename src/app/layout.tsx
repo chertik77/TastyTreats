@@ -4,7 +4,7 @@ import type { PropsWithChildren } from 'react'
 import { Inter } from 'next/font/google'
 import { Toaster } from 'sonner'
 
-import { Header } from '@/components/blocks/header/Header'
+import { Header } from '@/components/blocks'
 import { Container } from '@/components/ui'
 
 import { Providers } from './providers'
