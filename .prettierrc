@@ -10,6 +10,7 @@
   "arrowParens": "avoid",
   "proseWrap": "preserve",
   "singleAttributePerLine": true,
+  "importOrderTypeScriptVersion": "5.0.0",
   "importOrder": [
     "<TYPES>",
     "<TYPES>^[.]",
