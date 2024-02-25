@@ -1,10 +1,12 @@
+import { Select } from '@/components/ui/Select'
+
 import { RECIPE_SERVICE } from '@/services'
 
-import { AreaSelect } from './AreaSelect'
-import { IngredientSelect } from './IngredientSelect'
+import { searchParamsCache } from '@/utils/functions/searchParamsCache'
+import time from '@/utils/json/filters-time.json'
+
 import { ResetFilter } from './ResetFilter'
 import { SearchFilter } from './SearchFilter'
-import { TimeSelect } from './TimeSelect'
 
 export const Filters = async () => {
   const areas = await RECIPE_SERVICE.getAreas()
@@ -13,9 +15,26 @@ export const Filters = async () => {
   return (
     <div className='mb-5 flex flex-wrap items-start gap-[14px] tablet:gap-4'>
       <SearchFilter />
-      <TimeSelect />
-      <AreaSelect areas={areas} />
-      <IngredientSelect ingredients={ingredients} />
+      <Select
+        labelName='Time'
+        paramsKey='time'
+        selectOptions={time.map(t => t + ' min')}
+        value={searchParamsCache.get('time') + ' min'}
+      />
+      <Select
+        labelName='Area'
+        paramsKey='area'
+        selectOptions={areas.map(area => area.name)}
+      />
+      <Select
+        labelName='Ingredients'
+        paramsKey='ingredient'
+        optionLabel='name'
+        selectOptions={ingredients.map(ingredient => ingredient)}
+        value={ingredients?.find(
+          ingredient => ingredient._id === searchParamsCache.get('ingredient')
+        )}
+      />
       <ResetFilter />
     </div>
   )

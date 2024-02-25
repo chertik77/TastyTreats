@@ -15,12 +15,10 @@ export const HeaderOrderNowModalBtn = () => {
         onClick={toggleModal}>
         <CartIcon />
       </button>
-      {isModalOpen && (
-        <OrderNowModal
-          isModalOpen={isModalOpen}
-          toggleModal={toggleModal}
-        />
-      )}
+      <OrderNowModal
+        isModalOpen={isModalOpen}
+        toggleModal={toggleModal}
+      />
     </>
   )
 }

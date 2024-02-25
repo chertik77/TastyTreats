@@ -1,9 +1,9 @@
 'use client'
 
-import { useClearSearchParams } from '@/hooks'
+import { useQueryParams } from '@/hooks'
 
 export const ResetFilter = () => {
-  const clearSearchParams = useClearSearchParams()
+  const { clearSearchParams } = useQueryParams()
   return (
     <button
       className='ml-auto flex items-center gap-1 text-fs-12-lh-normal-fw-500 text-dark/50 dark:text-white/50 max-tablet:mt-auto'

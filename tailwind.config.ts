@@ -1,18 +1,15 @@
 import type { Config } from 'tailwindcss/types/config'
 
-import { nextui } from '@nextui-org/react'
 import plugin from 'tailwindcss/plugin'
 
 const config: Config = {
   content: [
     './index.html',
     './src/**/*.{ts,tsx}',
-    './node_modules/primereact/**/*.{js,ts,jsx,tsx}',
-    './node_modules/@nextui-org/theme/dist/**/*.{js,ts,jsx,tsx}'
+    './node_modules/primereact/**/*.{js,ts,jsx,tsx}'
   ],
   darkMode: 'class',
   plugins: [
-    nextui(),
     plugin(({ addComponents, addVariant }) => {
       addVariant('hocus', ['&:hover', '&:focus']),
         addComponents({

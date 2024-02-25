@@ -2,11 +2,13 @@
 
 import type { PropsWithChildren } from 'react'
 
-import { NextUIProvider } from '@nextui-org/react'
 import { ThemeProvider } from 'next-themes'
+import { PrimeReactProvider } from 'primereact/api'
+
+import { pt } from '@/utils/primereact-tailwind-theme'
 
 export const Providers = ({ children }: PropsWithChildren) => (
-  <NextUIProvider>
+  <PrimeReactProvider value={{ pt }}>
     <ThemeProvider attribute='class'>{children}</ThemeProvider>
-  </NextUIProvider>
+  </PrimeReactProvider>
 )

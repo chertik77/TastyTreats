@@ -2,15 +2,12 @@
 
 import type { Categories } from '@/types'
 
-import { useQueryState } from 'nuqs'
+import { classNames } from 'primereact/utils'
 
-import { useClearSearchParams } from '@/hooks'
-
-import { cn } from '@/utils'
+import { useQueryParams } from '@/hooks'
 
 export const CategoriesList = ({ categories }: { categories: Categories }) => {
-  const clearSearchParams = useClearSearchParams()
-  const [category, setCategory] = useQueryState('category', { shallow: false })
+  const { params, setParams, clearSearchParams } = useQueryParams('category')
 
   return (
     <>
@@ -28,11 +25,11 @@ export const CategoriesList = ({ categories }: { categories: Categories }) => {
               tablet:text-fs-16-lh-125-fw-500'
             key={_id}>
             <button
-              className={cn(
+              className={classNames(
                 'main-transition hocus:text-brand',
-                category === name && 'text-brand'
+                params === name && 'text-brand'
               )}
-              onClick={() => setCategory(name)}
+              onClick={() => setParams(name)}
               type='button'>
               {name}
             </button>
