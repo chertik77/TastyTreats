@@ -53,11 +53,12 @@ export type Options = {
   ingredient?: string
   limit?: number
   page?: number
-  time?: number
+  time?: string
 }
 
 export type RecipesStatesProps = {
   states: {
+    time: string
     category: string
     area: string
     ingredient: string

@@ -24,12 +24,12 @@ export const CategoriesList = ({ categories }: { categories: Categories }) => {
         {categories?.map(({ _id, name }) => (
           <li
             className='mb-[18px] cursor-pointer text-fs-14-lh-normal-fw-500 text-dark-30
-              last-of-type:mb-0 hocus:text-brand dark:text-gray-30 tablet:mb-6
+              last-of-type:mb-0 dark:text-gray-30 tablet:mb-6
               tablet:text-fs-16-lh-125-fw-500'
             key={_id}>
             <button
               className={cn(
-                'main-transition hover:text-brand',
+                'main-transition hocus:text-brand',
                 category === name && 'text-brand'
               )}
               onClick={() => setCategory(name)}

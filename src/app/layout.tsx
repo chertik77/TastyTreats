@@ -30,8 +30,8 @@ const RootLayout = ({ children }: PropsWithChildren) => (
     lang='en'
     suppressHydrationWarning>
     <body className={`${inter.className} dark:bg-[#161616]`}>
-      <Container>
-        <Providers>
+      <Providers>
+        <Container>
           <Header />
           <main>
             <Toaster
@@ -40,8 +40,8 @@ const RootLayout = ({ children }: PropsWithChildren) => (
             />
             {children}
           </main>
-        </Providers>
-      </Container>
+        </Container>
+      </Providers>
     </body>
   </html>
 )

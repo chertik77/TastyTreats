@@ -1,37 +1,29 @@
 'use client'
 
-import type { Ingredients } from '@/types'
-
 import { useQueryState } from 'nuqs'
 import { Dropdown } from 'primereact/dropdown'
 
 import { DropdownIcon } from '@/components/ui'
 
-export const IngredientSelect = ({
-  ingredients
-}: {
-  ingredients: Ingredients
-}) => {
-  const [ingredientParam, setIngredientParam] = useQueryState('ingredient', {
+import time from '@/utils/json/filters-time.json'
+
+export const TimeSelect = () => {
+  const [ingredientParam, setIngredientParam] = useQueryState('time', {
     shallow: false
   })
+
+  console.log(time)
   return (
-    <label className='mb-2 text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
-      Ingredients
+    <label className='mb-2 block text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
+      Time
       <Dropdown
         dropdownIcon={<DropdownIcon />}
         onChange={e => {
           console.log(e)
-          setIngredientParam(e.value._id)
+          setIngredientParam(e.value)
         }}
-        optionLabel='name'
-        optionValue=''
-        options={ingredients}
+        options={time.map(time => time + ' min')}
         pt={{
-          filterInput: {
-            className:
-              'focus:shadow-none pl-2 pr-10 border border-dark-20 dark:bg-transparent dark:border-gray-20 dark:text-gray-50'
-          },
           header: { className: 'dark:bg-dark rounded-t-[14px]' },
           item: {
             className:
@@ -46,9 +38,6 @@ export const IngredientSelect = ({
         }}
         scrollHeight='171px'
         showOnFocus
-        value={ingredients?.find(
-          ingredient => ingredient._id === ingredientParam
-        )}
       />
     </label>
   )

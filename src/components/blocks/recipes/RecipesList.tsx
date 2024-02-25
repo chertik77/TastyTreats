@@ -31,6 +31,9 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
             }}>
             <button
               className='absolute right-4 top-4'
+              onClick={() => {
+                localStorage.setItem('favorite-recipes', _id)
+              }}
               type='button'>
               <i className='pi pi-heart text-[22px] text-lighter opacity-50 dark:text-light'></i>
             </button>
