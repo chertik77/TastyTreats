@@ -12,18 +12,21 @@ export const TimeSelect = () => {
     shallow: false
   })
 
-  console.log(time)
   return (
-    <label className='mb-2 block text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
+    <label className='flex flex-col text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
       Time
       <Dropdown
         dropdownIcon={<DropdownIcon />}
         onChange={e => {
-          console.log(e)
-          setIngredientParam(e.value)
+          const time = e.value.slice(0, -4)
+          setIngredientParam(time)
         }}
         options={time.map(time => time + ' min')}
         pt={{
+          input: {
+            className:
+              'text-black/50 text-fs-16-lh-125-fw-500 dark:text-white/50'
+          },
           header: { className: 'dark:bg-dark rounded-t-[14px]' },
           item: {
             className:
@@ -36,8 +39,10 @@ export const TimeSelect = () => {
           },
           wrapper: { className: 'overscroll-none' }
         }}
+        placeholder='Any'
         scrollHeight='171px'
         showOnFocus
+        value={ingredientParam + ' min'}
       />
     </label>
   )

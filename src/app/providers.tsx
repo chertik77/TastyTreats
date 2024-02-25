@@ -2,11 +2,11 @@
 
 import type { PropsWithChildren } from 'react'
 
+import { NextUIProvider } from '@nextui-org/react'
 import { ThemeProvider } from 'next-themes'
-import { PrimeReactProvider } from 'primereact/api'
 
 export const Providers = ({ children }: PropsWithChildren) => (
-  <PrimeReactProvider>
+  <NextUIProvider>
     <ThemeProvider attribute='class'>{children}</ThemeProvider>
-  </PrimeReactProvider>
+  </NextUIProvider>
 )

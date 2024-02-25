@@ -16,18 +16,21 @@ export const IngredientSelect = ({
     shallow: false
   })
   return (
-    <label className='mb-2 text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
+    <label className='flex flex-col text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
       Ingredients
       <Dropdown
         dropdownIcon={<DropdownIcon />}
         onChange={e => {
-          console.log(e)
           setIngredientParam(e.value._id)
         }}
         optionLabel='name'
-        optionValue=''
+        // optionValue=''
         options={ingredients}
         pt={{
+          input: {
+            className:
+              'text-black/50 text-fs-16-lh-125-fw-500 dark:text-white/50'
+          },
           filterInput: {
             className:
               'focus:shadow-none pl-2 pr-10 border border-dark-20 dark:bg-transparent dark:border-gray-20 dark:text-gray-50'
@@ -46,6 +49,7 @@ export const IngredientSelect = ({
         }}
         scrollHeight='171px'
         showOnFocus
+        placeholder='Any'
         value={ingredients?.find(
           ingredient => ingredient._id === ingredientParam
         )}

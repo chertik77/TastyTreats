@@ -9,7 +9,7 @@ export const AreaSelect = ({ areas }: { areas: Areas }) => {
   const [area, setArea] = useQueryState('area', { shallow: false })
 
   return (
-    <label className='mb-2 text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
+    <label className='flex flex-col text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
       Area
       <Dropdown
         dropdownIcon={
@@ -33,9 +33,9 @@ export const AreaSelect = ({ areas }: { areas: Areas }) => {
         onChange={e => setArea(e.value)}
         options={areas?.map(area => area.name)}
         pt={{
-          filterInput: {
+          input: {
             className:
-              'focus:shadow-none pl-2 pr-10 border border-dark-20 dark:bg-transparent dark:border-gray-20 dark:text-gray-50'
+              'text-black/50 text-fs-16-lh-125-fw-500 dark:text-white/50'
           },
           header: { className: 'dark:bg-dark rounded-t-[14px]' },
           item: {
@@ -49,6 +49,7 @@ export const AreaSelect = ({ areas }: { areas: Areas }) => {
           },
           wrapper: { className: 'overscroll-none' }
         }}
+        placeholder='Any'
         scrollHeight='171px'
         showOnFocus
         value={area}
