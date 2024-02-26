@@ -33,13 +33,13 @@ export const OrderNowModal = ({
     }
 
     promiseToast(send(filteredData), {
-      error:
-        'We apologize, but an error occurred during the order submission. Please try again.',
       loading: 'Processing your order...',
       success: () => {
         reset()
         return 'Your order has been successfully submitted. Thank you!'
-      }
+      },
+      error:
+        'We apologize, but an error occurred during the order submission. Please try again.'
     })
   }
 

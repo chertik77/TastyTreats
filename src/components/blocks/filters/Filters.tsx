@@ -13,29 +13,37 @@ export const Filters = async () => {
   const ingredients = await RECIPE_SERVICE.getIngredients()
 
   return (
-    <div className='mb-5 flex flex-wrap items-start gap-[14px] tablet:gap-4'>
-      <SearchFilter />
-      <Select
-        labelName='Time'
-        paramsKey='time'
-        selectOptions={time.map(t => t + ' min')}
-        value={searchParamsCache.get('time') + ' min'}
-      />
-      <Select
-        labelName='Area'
-        paramsKey='area'
-        selectOptions={areas.map(area => area.name)}
-      />
-      <Select
-        labelName='Ingredients'
-        paramsKey='ingredient'
-        optionLabel='name'
-        selectOptions={ingredients.map(ingredient => ingredient)}
-        value={ingredients?.find(
-          ingredient => ingredient._id === searchParamsCache.get('ingredient')
-        )}
-      />
+    <>
+      <div className='mb-[14px] flex flex-wrap gap-[14px] tablet:gap-4 max-tablet:justify-center'>
+        <SearchFilter />
+        <Select
+          labelName='Time'
+          paramsKey='time'
+          scrollHeight='124px'
+          className='tablet:w-[125px]'
+          selectOptions={time.map(t => t + ' min')}
+          value={searchParamsCache.get('time') + ' min'}
+        />
+        <Select
+          labelName='Area'
+          paramsKey='area'
+          scrollHeight='176px'
+          className='tablet:w-[141px]'
+          selectOptions={areas.map(area => area.name)}
+        />
+        <Select
+          labelName='Ingredients'
+          paramsKey='ingredient'
+          optionLabel='name'
+          className='w-[188px]'
+          scrollHeight='176px'
+          selectOptions={ingredients.map(ingredient => ingredient)}
+          value={ingredients?.find(
+            ingredient => ingredient._id === searchParamsCache.get('ingredient')
+          )}
+        />
+      </div>
       <ResetFilter />
-    </div>
+    </>
   )
 }

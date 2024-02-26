@@ -14,14 +14,14 @@ const config: Config = {
       addVariant('hocus', ['&:hover', '&:focus']),
         addComponents({
           '.btn-categories': {
-            '&:is(:hover, :focus)': {
-              backgroundColor: '#9BB537',
-              borderColor: '#9BB537',
-              color: '#F8F8F8'
-            },
             '.dark &': {
               border: '1px solid rgba(255, 255, 255, 0.20)',
               color: 'rgba(255, 255, 255, 0.50)'
+            },
+            '&:is(:hover, :focus)': {
+              backgroundColor: '#9BB537',
+              borderColor: '#9BB537',
+              color: '#F8F8F8 !important'
             },
             '@media only screen and (width >= 1280px)': {
               padding: '14px 28px'
@@ -29,7 +29,7 @@ const config: Config = {
             border: '1px solid rgba(5, 5, 5, 0.20)',
             borderRadius: '15px',
             color: 'rgba(5, 5, 5, 0.50)',
-            fontSize: '18px',
+            fontSize: '17px',
             fontWeight: '500',
             lineHeight: 'normal',
             padding: '14px 29px',
@@ -209,7 +209,7 @@ const config: Config = {
     screens: {
       mobile: '375px',
       tablet: '768px',
-      'max-tablet': { max: '768px' },
+      'max-tablet': { max: '767px' },
       desktop: '1280px'
     }
   }

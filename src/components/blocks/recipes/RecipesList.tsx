@@ -2,6 +2,7 @@
 
 import type { RecipesStatesProps } from '@/types'
 
+import { useLocalStorage } from 'primereact/hooks'
 import { Paginator } from 'primereact/paginator'
 import { useMediaQuery } from 'react-responsive'
 
@@ -10,30 +11,38 @@ import { Rating } from '@/components/ui'
 import { useRecipesPagination } from '@/hooks'
 
 export const RecipesList = ({ states }: RecipesStatesProps) => {
-  const isMobile = useMediaQuery({ maxWidth: 768 })
-
+  const [favoriteRecipes, setFavoriteRecipes] = useLocalStorage<string[]>(
+    [],
+    'favorite-recipes'
+  )
+  const isMobile = useMediaQuery({ maxWidth: 767 })
   const { data, setPage, total, page, pageSize, loading } =
     useRecipesPagination(states)
 
   return (
-    <div className='mb-[100px]'>
-      <ul className='mb-10 grid gap-6 tablet:mb-16 tablet:grid-cols-2 tablet:gap-4 desktop:grid-cols-3'>
+    <div className='mb-20 tablet:mb-[100px]'>
+      <ul className='mb-10 grid justify-center gap-6 tablet:mb-16 tablet:grid-cols-2 tablet:gap-4 desktop:grid-cols-3'>
         {loading ? (
           <div className='flex justify-center'>Loading...</div>
         ) : (
           data?.map(({ _id, description, preview, rating, title }) => (
             <li
-              className='relative size-[335px] rounded-lg px-4 pb-4 pt-[214px] tablet:h-[264px]
-                      tablet:w-[240px] tablet:pt-[143px] desktop:h-[287px]
-                      desktop:w-[250px] desktop:pt-[163px]'
+              className='relative size-[335px] rounded-lg px-4 pb-4
+                      pt-[214px] tablet:h-[264px] tablet:w-[240px]
+                      tablet:pt-[143px] desktop:h-[287px] desktop:w-[250px] desktop:pt-[163px]'
               key={_id}
               style={{
-                background: `linear-gradient(1deg, rgba(5, 5, 5, 0.60) 4.82%, rgba(5, 5, 5, 0.00) 108.72%), url(${preview}), lightgray -91.79px -9.338px / 138.4% 120.558% no-repeat`
+                background: `linear-gradient(1deg, rgba(5, 5, 5, 0.60) 4.82%, rgba(5, 5, 5, 0.00) 108.72%), url(${preview}), lightgray -91.79px -9.338px / 138.4% 120.558%`,
+                backgroundPosition: 'center',
+                backgroundSize: 'cover',
+                backgroundRepeat: 'no-repeat'
               }}>
               <button
                 className='absolute right-4 top-4'
                 onClick={() => {
-                  localStorage.setItem('favorite-recipes', _id)
+                  if (!favoriteRecipes.includes(_id)) {
+                    setFavoriteRecipes(v => [...v, _id])
+                  }
                 }}
                 type='button'>
                 <i className='pi pi-heart text-[22px] text-lighter opacity-50 dark:text-light'></i>

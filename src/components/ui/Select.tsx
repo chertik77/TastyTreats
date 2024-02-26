@@ -5,6 +5,7 @@ import type { DropdownChangeEvent, DropdownProps } from 'primereact/dropdown'
 import type { SelectItemOptionsType } from 'primereact/selectitem'
 
 import { Dropdown } from 'primereact/dropdown'
+import { classNames } from 'primereact/utils'
 
 import { useQueryParams } from '@/hooks'
 
@@ -12,6 +13,7 @@ import { DropdownIcon } from '.'
 
 type SelectProps = DropdownProps & {
   labelName: 'Time' | 'Area' | 'Ingredients'
+  labelClassName?: string
   paramsKey: QueryKeys
   selectOptions: SelectItemOptionsType
 }
@@ -38,14 +40,17 @@ export const Select = ({
   }
 
   return (
-    <label className='flex flex-col text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50'>
+    <label
+      className={classNames(
+        'flex flex-col text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50',
+        labelName === 'Ingredients' && 'tablet:mr-auto'
+      )}>
       {labelName}
       <Dropdown
         dropdownIcon={<DropdownIcon />}
         onChange={handleChange}
         options={selectOptions}
         placeholder='Any'
-        scrollHeight='171px'
         showOnFocus
         value={params}
         {...rest}
