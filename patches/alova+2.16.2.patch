@@ -17,3 +17,22 @@ index 42d8f29..68cb594 100644
  
  export { Method, createAlova, key as getMethodKey, invalidateCache, matchSnapshotMethod, queryCache, setCache, updateState, useFetcher, useRequest, useWatcher };
 +
+diff --git a/node_modules/alova/dist/alova.umd.js b/node_modules/alova/dist/alova.umd.js
+index 071f428..e94fec9 100644
+--- a/node_modules/alova/dist/alova.umd.js
++++ b/node_modules/alova/dist/alova.umd.js
+@@ -1368,14 +1368,6 @@
+       pushItem(alovas, alovaInstance);
+       return alovaInstance;
+   };
+-  /* c8 ignore start */
+-  {
+-      console.log(`powerful alova request strategies: https://alova.js.org/category/strategy
+-use mock data: https://alova.js.org/extension/alova-mock
+-please star alova if you like it: https://github.com/alovajs/alova
+-this tips will be removed in production environment`);
+-  }
+-  /* c8 ignore stop */
+ 
+   exports.Method = Method;
+   exports.createAlova = createAlova;

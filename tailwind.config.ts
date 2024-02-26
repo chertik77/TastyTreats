@@ -204,13 +204,12 @@ const config: Config = {
         ],
         'fs-26-lh-120-fw-600': ['26px', { fontWeight: 600, lineHeight: '1.2' }],
         'fs-36-lh-120-fw-600': ['36px', { fontWeight: 600, lineHeight: '1.2' }]
+      },
+      screens: {
+        mobile: '375px',
+        tablet: '768px',
+        desktop: '1280px'
       }
-    },
-    screens: {
-      mobile: '375px',
-      tablet: '768px',
-      'max-tablet': { max: '767px' },
-      desktop: '1280px'
     }
   }
 }
