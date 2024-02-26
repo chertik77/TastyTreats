@@ -11,10 +11,9 @@ import { Rating } from '@/components/ui'
 import { useRecipesPagination } from '@/hooks'
 
 export const RecipesList = ({ states }: RecipesStatesProps) => {
-  const [favoriteRecipes, setFavoriteRecipes] = useLocalStorage<string[]>(
-    [],
-    'favorite-recipes'
-  )
+  const [favoriteRecipes, setFavoriteRecipes] = useLocalStorage<
+    { _id: string; tags: string[] }[]
+  >([], 'favorite-recipes')
   const isMobile = useMediaQuery({ maxWidth: 767 })
   const { data, setPage, total, page, pageSize, loading } =
     useRecipesPagination(states)
@@ -25,7 +24,7 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
         {loading ? (
           <div className='flex justify-center'>Loading...</div>
         ) : (
-          data?.map(({ _id, description, preview, rating, title }) => (
+          data?.map(({ _id, description, preview, rating, title, tags }) => (
             <li
               className='relative size-[335px] rounded-lg px-4 pb-4
                       pt-[214px] tablet:h-[264px] tablet:w-[240px]
@@ -40,8 +39,8 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
               <button
                 className='absolute right-4 top-4'
                 onClick={() => {
-                  if (!favoriteRecipes.includes(_id)) {
-                    setFavoriteRecipes(v => [...v, _id])
+                  if (!favoriteRecipes.map(f => f._id).includes(_id)) {
+                    setFavoriteRecipes(v => [...v, { _id, tags }])
                   }
                 }}
                 type='button'>

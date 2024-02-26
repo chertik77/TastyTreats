@@ -8,6 +8,7 @@ const page = () => {
       width={1080}
       height={356}
       alt='...'
+      priority
     />
   )
 }

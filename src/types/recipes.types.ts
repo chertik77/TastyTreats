@@ -29,6 +29,7 @@ export type Recipes = {
     preview: string
     title: string
     rating: number
+    tags: string[]
   }[]
 }
 

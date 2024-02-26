@@ -1,3 +1,5 @@
+'use client'
+
 import type { OrderSchemaFields } from '@/utils/order-schema'
 import type { Control } from 'react-hook-form'
 
