@@ -15,18 +15,16 @@ export const HeaderThemeSwitcher = ({ className }: { className?: string }) => {
   const isThemeDark = theme === 'dark' || resolvedTheme === 'dark'
 
   return (
-    <>
-      {mounted && (
-        <InputSwitch
-          checked={isThemeDark}
-          name='theme-switch'
-          onChange={() => setTheme(isThemeDark ? 'light' : 'dark')}
-          pt={{
-            root: { className: `relative w-[46px] h-5 ${className}` }
-          }}
-          unstyled
-        />
-      )}
-    </>
+    mounted && (
+      <InputSwitch
+        checked={isThemeDark}
+        name='theme-switch'
+        onChange={() => setTheme(isThemeDark ? 'light' : 'dark')}
+        pt={{
+          root: { className: `relative w-[46px] h-5 ${className}` }
+        }}
+        unstyled
+      />
+    )
   )
 }

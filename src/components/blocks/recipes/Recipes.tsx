@@ -8,9 +8,5 @@ export const Recipes = async () => {
   const ingredient = searchParamsCache.get('ingredient')
   const time = searchParamsCache.get('time')
 
-  return (
-    <>
-      <RecipesList states={{ category, area, ingredient, time }} />
-    </>
-  )
+  return <RecipesList states={{ category, area, ingredient, time }} />
 }

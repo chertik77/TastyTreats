@@ -13,7 +13,7 @@ export const PopularRecipesList = ({
     <ul>
       {popularRecipes?.map(({ _id, description, preview, title }) => (
         <li
-          className='mb-6 last-of-type:mb-0 tablet:mb-4 max-tablet:even:hidden'
+          className='mb-6 last-of-type:mb-0 max-tablet:even:hidden tablet:mb-4'
           key={_id}>
           <button className='flex gap-4 tablet:gap-2 desktop:gap-4'>
             <Image

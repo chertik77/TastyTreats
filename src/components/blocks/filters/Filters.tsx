@@ -14,7 +14,7 @@ export const Filters = async () => {
 
   return (
     <>
-      <div className='mb-[14px] flex flex-wrap gap-[14px] tablet:gap-4 max-tablet:justify-center'>
+      <div className='mb-[14px] flex flex-wrap gap-[14px] max-tablet:justify-center tablet:gap-4'>
         <SearchFilter />
         <Select
           labelName='Time'
