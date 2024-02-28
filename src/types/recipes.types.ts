@@ -37,14 +37,16 @@ export type Recipe = {
   _id: string
   title: string
   thumb: string
+  time: string
   instructions: string
+  description: string
   youtube: string
   tags: string[]
   ingredients: {
     _id: string
     name: string
     measure: string
-  }
+  }[]
   rating: number
 }
 

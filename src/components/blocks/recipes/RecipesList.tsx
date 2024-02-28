@@ -60,7 +60,7 @@ export const RecipesList = ({ states }: States) => {
                   </p>
                   <Rating rating={rating} />
                 </div>
-                <RecipesModalBtn />
+                <RecipesModalBtn recipeId={_id} />
               </div>
             </li>
           ))

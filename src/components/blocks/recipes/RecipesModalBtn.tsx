@@ -1,8 +1,12 @@
-import { RecipeModal } from '@/components/features/RecipeModal'
+import dynamic from 'next/dynamic'
 
 import { useModal } from '@/hooks'
 
-export const RecipesModalBtn = () => {
+const RecipeModal = dynamic(() =>
+  import('@/components/features/RecipeModal').then(r => r.RecipeModal)
+)
+
+export const RecipesModalBtn = ({ recipeId }: { recipeId: string }) => {
   const { isModalOpen, toggleModal } = useModal()
 
   return (
@@ -13,10 +17,13 @@ export const RecipesModalBtn = () => {
         type='button'>
         See recipe
       </button>
-      <RecipeModal
-        isModalOpen={isModalOpen}
-        toggleModal={toggleModal}
-      />
+      {isModalOpen && (
+        <RecipeModal
+          recipeId={recipeId}
+          isModalOpen={isModalOpen}
+          toggleModal={toggleModal}
+        />
+      )}
     </>
   )
 }
