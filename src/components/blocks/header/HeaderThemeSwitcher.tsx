@@ -2,6 +2,7 @@
 
 import { useTheme } from 'next-themes'
 import { InputSwitch } from 'primereact/inputswitch'
+import { classNames } from 'primereact/utils'
 import { useEffect, useState } from 'react'
 
 export const HeaderThemeSwitcher = ({ className }: { className?: string }) => {
@@ -17,13 +18,11 @@ export const HeaderThemeSwitcher = ({ className }: { className?: string }) => {
   return (
     mounted && (
       <InputSwitch
-        checked={isThemeDark}
         name='theme-switch'
+        className={classNames('relative h-5 w-[46px]', className)}
         onChange={() => setTheme(isThemeDark ? 'light' : 'dark')}
-        pt={{
-          root: { className: `relative w-[46px] h-5 ${className}` }
-        }}
         unstyled
+        checked={isThemeDark}
       />
     )
   )

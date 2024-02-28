@@ -9,7 +9,7 @@ import { orderSchema } from '@/utils/order-schema'
 export const useOrderForm = () => {
   const {
     control,
-    formState: { errors, isValid },
+    formState: { errors },
     handleSubmit,
     register,
     reset,
@@ -19,7 +19,7 @@ export const useOrderForm = () => {
     defaultValues: { email: '', name: '', phone: '' },
     mode: 'onChange',
     progressive: true,
-    resolver: valibotResolver(orderSchema, { abortEarly: true })
+    resolver: valibotResolver(orderSchema)
   })
 
   const isLocalStorageDefined = () => {
@@ -34,5 +34,5 @@ export const useOrderForm = () => {
     storage: isLocalStorageDefined()
   })
 
-  return { control, errors, handleSubmit, isValid, register, reset }
+  return { control, errors, handleSubmit, register, reset }
 }

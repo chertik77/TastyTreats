@@ -23,7 +23,6 @@ export const PhoneField = ({
           tablet:mb-[18px]'>
         Phone number
         <PhoneInput
-          // hideDropdown
           className='mt-2 !w-[295px] tablet:!w-[360px]'
           countrySelectorStyleProps={{
             buttonClassName:

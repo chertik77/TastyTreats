@@ -1,6 +1,4 @@
-'use client'
-
-import type { RecipesStatesProps } from '@/types'
+import type { States } from './../types/recipes.types'
 
 import { usePagination } from '@alova/scene-react'
 import { useMediaQuery } from 'react-responsive'
@@ -12,9 +10,9 @@ export const useRecipesPagination = ({
   area,
   ingredient,
   time
-}: RecipesStatesProps['states']) => {
+}: States['states']) => {
   const isTablet = useMediaQuery({ minWidth: 768 })
-  const isDesktop = useMediaQuery({ minWidth: 1080 })
+  const isDesktop = useMediaQuery({ minWidth: 1280 })
 
   const {
     total,

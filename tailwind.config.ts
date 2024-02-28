@@ -102,10 +102,7 @@ const config: Config = {
           },
           '.btn-send': {
             '&:is(:hover, :focus)': { color: '#050505' },
-            '@media only screen and (width >= 768px)': {
-              height: '48px',
-              width: '360px'
-            },
+
             backgroundColor: '#9BB537',
             borderRadius: '15px',
             color: '#F8F8F8',
@@ -114,7 +111,11 @@ const config: Config = {
             height: '46px',
             lineHeight: 'normal',
             transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1)',
-            width: '295px'
+            width: '295px',
+            '@media only screen and (width >= 768px)': {
+              height: '48px',
+              width: '360px'
+            }
           },
           '.main-transition': {
             transition: 'color 250ms cubic-bezier(0.4, 0, 0.2, 1)'

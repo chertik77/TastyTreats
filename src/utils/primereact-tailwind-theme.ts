@@ -4,7 +4,9 @@ import { classNames } from 'primereact/utils'
 
 export const pt: PrimeReactPTOptions = {
   paginator: {
-    root: { className: 'dark:bg-transparent p-0' },
+    root: {
+      className: 'p-0 dark:bg-transparent'
+    },
     firstPageButton: {
       className:
         'bg-dark h-10 min-w-10 text-white/50 mr-1 tablet:h-11 tablet:min-w-11 tablet:mr-2'
@@ -51,11 +53,9 @@ export const pt: PrimeReactPTOptions = {
       className:
         'text-black/50 text-fs-16-lh-125-fw-500 dark:text-white/50 pl-[18px]'
     },
+    panel: { className: 'w-5 dark:bg-dark rounded-[14px] pl-[18px] py-[14px]' },
     header: { className: 'dark:bg-dark rounded-t-[14px]' },
     list: { className: 'space-y-2' },
-    panel: {
-      className: 'w-5 dark:bg-dark rounded-[14px] pl-[18px] py-[14px]'
-    },
     item: {
       className:
         'text-fs-14-lh-normal-fw-500 text-dark-30 dark:text-gray-30 hover:bg-transparent hover:text-dark dark:hover:text-white p-0 whitespace-normal pr-[18px]'

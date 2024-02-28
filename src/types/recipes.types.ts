@@ -57,7 +57,7 @@ export type Options = {
   time?: string
 }
 
-export type RecipesStatesProps = {
+export type States = {
   states: {
     time: string
     category: string

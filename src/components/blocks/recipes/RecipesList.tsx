@@ -1,21 +1,20 @@
 'use client'
 
-import type { RecipesStatesProps } from '@/types'
-
-import { useLocalStorage } from 'primereact/hooks'
-import { Paginator } from 'primereact/paginator'
-import { useMediaQuery } from 'react-responsive'
+// import { useLocalStorage } from 'primereact/hooks'
+import type { States } from '@/types'
 
 import { Rating } from '@/components/ui'
 
 import { useRecipesPagination } from '@/hooks'
 
-export const RecipesList = ({ states }: RecipesStatesProps) => {
-  const [favoriteRecipes, setFavoriteRecipes] = useLocalStorage<
-    { _id: string; tags: string[] }[]
-  >([], 'favorite-recipes')
-  const isMobile = useMediaQuery({ maxWidth: 767 })
-  const { data, setPage, total, page, pageSize, loading } =
+import { RecipesModalBtn } from './RecipesModalBtn'
+import { RecipesPagination } from './RecipesPagination'
+
+export const RecipesList = ({ states }: States) => {
+  // const [favoriteRecipes, setFavoriteRecipes] = useLocalStorage<
+  //   { _id: string; tags: string[] }[]
+  // >([], 'favorite-recipes')
+  const { data, loading, setPage, total, page, pageSize } =
     useRecipesPagination(states)
 
   return (
@@ -24,7 +23,7 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
         {loading ? (
           <div className='flex justify-center'>Loading...</div>
         ) : (
-          data?.map(({ _id, description, preview, rating, title, tags }) => (
+          data?.map(({ _id, description, preview, rating, title }) => (
             <li
               className='relative size-[335px] rounded-lg px-4 pb-4
                       pt-[214px] tablet:h-[264px] tablet:w-[240px]
@@ -38,11 +37,11 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
               }}>
               <button
                 className='absolute right-4 top-4'
-                onClick={() => {
-                  if (!favoriteRecipes.map(f => f._id).includes(_id)) {
-                    setFavoriteRecipes(v => [...v, { _id, tags }])
-                  }
-                }}
+                // onClick={() => {
+                //   if (!favoriteRecipes.map(f => f._id).includes(_id)) {
+                //     setFavoriteRecipes(v => [...v, { _id, tags }])
+                //   }
+                // }}
                 type='button'>
                 <i className='pi pi-heart text-[22px] text-lighter opacity-50 dark:text-light'></i>
               </button>
@@ -61,23 +60,17 @@ export const RecipesList = ({ states }: RecipesStatesProps) => {
                   </p>
                   <Rating rating={rating} />
                 </div>
-                <button
-                  className='btn-recipe'
-                  type='button'>
-                  See recipe
-                </button>
+                <RecipesModalBtn />
               </div>
             </li>
           ))
         )}
       </ul>
-      <Paginator
-        first={total === 0 ? 0 : (page - 1) * pageSize}
-        rows={pageSize}
-        alwaysShow={false}
-        totalRecords={total}
-        pageLinkSize={isMobile ? 2 : 3}
-        onPageChange={e => setPage(e.page + 1)}
+      <RecipesPagination
+        total={total as number}
+        setPage={setPage}
+        page={page}
+        pageSize={pageSize}
       />
     </div>
   )

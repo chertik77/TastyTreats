@@ -22,17 +22,10 @@ export const OrderNowModal = ({
   const { loading, send } = useRequest(RECIPE_SERVICE.addOrder, {
     immediate: false
   })
-  const { control, errors, handleSubmit, isValid, register, reset } =
-    useOrderForm()
+  const { control, errors, handleSubmit, register, reset } = useOrderForm()
 
   const submit = async (data: OrderSchemaFields) => {
-    const filteredData = {
-      email: data.email,
-      name: data.name,
-      phone: '+380000000000'
-    }
-
-    promiseToast(send(filteredData), {
+    promiseToast(send({ ...data, phone: '+380000000000' }), {
       loading: 'Processing your order...',
       success: () => {
         reset()
@@ -78,8 +71,7 @@ export const OrderNowModal = ({
               isTextArea
             />
             <button
-              className='btn-send disabled:cursor-not-allowed disabled:opacity-50'
-              disabled={!isValid}
+              className='btn-send'
               type='submit'>
               {loading ? 'Sending...' : 'Send'}
             </button>

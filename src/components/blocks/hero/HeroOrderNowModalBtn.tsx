@@ -1,8 +1,12 @@
 'use client'
 
-import { OrderNowModal } from '@/components/features/OrderNowModal'
+import dynamic from 'next/dynamic'
 
 import { useModal } from '@/hooks'
+
+const OrderNowModal = dynamic(() =>
+  import('@/components/features/OrderNowModal').then(r => r.OrderNowModal)
+)
 
 export const HeroOrderNowModalBtn = () => {
   const { isModalOpen, toggleModal } = useModal()
@@ -15,12 +19,10 @@ export const HeroOrderNowModalBtn = () => {
         type='button'>
         Order Now
       </button>
-      {isModalOpen && (
-        <OrderNowModal
-          isModalOpen={isModalOpen}
-          toggleModal={toggleModal}
-        />
-      )}
+      <OrderNowModal
+        isModalOpen={isModalOpen}
+        toggleModal={toggleModal}
+      />
     </>
   )
 }
