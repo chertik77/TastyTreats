@@ -43,7 +43,7 @@ export const Select = ({
     <label
       className={classNames(
         'flex flex-col text-fs-12-lh-normal-fw-400 text-dark-50 dark:text-gray-50',
-        labelName === 'Ingredients' && 'tablet:mr-auto'
+        labelName === 'Ingredients' && 'max-tablet:mr-auto'
       )}>
       {labelName}
       <Dropdown
